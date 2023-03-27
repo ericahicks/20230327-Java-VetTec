@@ -6,7 +6,8 @@ public class StringConcatenation {
 		System.out.println("Erica" + "Hicks"); // concatenation appends Hicks to Erica without space btwn
 		System.out.println("Erica " + "Hicks");
 		
-		System.out.print("bananaas, ");
+		System.out.println("----Grocery List------");
+		System.out.print("bananas, "); // print will not add a newline after the String of characters printed
 		System.out.print("milk, ");
 		System.out.println("toothpaste");
 		System.out.println("---done---");
