@@ -64,6 +64,8 @@ public class DataTypePractice {
 		// What will this print out?
 		System.out.println("11" + 1); 
 		
+		System.out.println(Byte.MAX_VALUE);
+		System.out.println(Short.MAX_VALUE);
 		// 
 	} // end main
 
