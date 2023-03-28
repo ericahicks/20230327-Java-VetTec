@@ -89,7 +89,7 @@ public class ScannerPractice {
 		// Example: Using .next() with a different delimiter to read in items
 		
 		// step 1:
-		in.useDelimiter(",");
+		in.useDelimiter(", |\n|,"); // to use multiple delimiters separate by a pipe |
 		
 		// step 2: prompt user
 		System.out.print("Enter a list of 3 items (separated by commas): ");
