@@ -13,6 +13,7 @@ public class UserInputPractice {
 		System.out.print("Please enter your name: ");
 		
 		String name = in.nextLine(); // this will grab everything up to the first newline character
+		in.close(); // REMEMBER to close your scanner resource (Java Garbage collection does not automatically do this)
 		System.out.println("Hello, " + name + "!");
 	}
 
