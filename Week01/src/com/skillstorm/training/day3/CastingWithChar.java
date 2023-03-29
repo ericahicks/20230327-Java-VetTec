@@ -26,10 +26,10 @@ public class CastingWithChar {
 		/* Challenge
 		Print out the following values:
 		*/
-		short test10 = (short) Character.MAX_VALUE;
+		short test10 = (short) Character.MAX_VALUE; // compilation error if try implicit cast
 		int test10b = Character.MAX_VALUE;
 		short test11 = Character.MIN_VALUE;
-		short test12 = Short.MAX_VALUE;
+		short test12 = Short.MAX_VALUE; // capslock snake case is indicating this is a constant value that never changes
 		short test13 = Short.MIN_VALUE;
 		
 		// What does this tell us about the difference between char vs short?
