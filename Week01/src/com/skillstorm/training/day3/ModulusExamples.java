@@ -19,6 +19,14 @@ public class ModulusExamples {
 		int now = 1400;
 		int timeIn71Hours = (now + 7100) % 2400;
 		System.out.println(timeIn71Hours);
+		
+		// What will this print out?
+		int someNumber = 16; 
+		System.out.println(someNumber % 2); // 0
+		System.out.println(someNumber % 3); // 1 
+		
+		// modulus: 16 mod 2 what is 16 / 2? 8 what is 16 - (8 * 2) = 16 - 16 = 0
+		//          x  mod y what is x / y? n  what is  x - (n * y)
 	}
 
 }
