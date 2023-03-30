@@ -42,6 +42,8 @@ public class MoreStringPractice {
 		
 		
 		// Example: add commas for large numbers
+		example = String.format("%,d", 10000000);
+		System.out.println(example);
 		
 		// Example: zero padding
 		example = String.format("%05d", 10); // NOT the number of spaces but the width of the string (right justifies)
