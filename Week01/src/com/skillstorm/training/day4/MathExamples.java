@@ -1,4 +1,5 @@
 package com.skillstorm.training.day4;
+import java.lang.Math; // happens automatically (still happens even if I do static imports below)
 
 import static java.lang.Math.abs; // static imports allow me to use abs without specifying the class
 import static java.lang.Math.pow; // static imports allow me to use pow without specifying the class

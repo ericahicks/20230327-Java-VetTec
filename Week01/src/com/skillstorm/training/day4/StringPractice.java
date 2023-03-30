@@ -1,5 +1,7 @@
 package com.skillstorm.training.day4;
 
+import java.util.Scanner;
+
 public class StringPractice {
 	
 	public static void main(String[] args) {
@@ -68,9 +70,37 @@ public class StringPractice {
 		// Brainteaser:
 		System.out.println( fruit.indexOf('a',  fruit.lastIndexOf('a')  )  );
 		System.out.println( "banana".indexOf('a', "banana".lastIndexOf('a') + 1));
-		System.out.println( "banana".indexOf('a', 5));
-		System.out.println( 5 );
+		System.out.println( "banana".indexOf('a', 5 + 1));
+		System.out.println( "banana".indexOf('a', 6));
+		System.out.println( -1 );
 		
+		String grade = "a";
+		grade.toUpperCase();
+		System.out.println(grade);
+	
+		
+		System.out.println("------------String replace-----------------");
+		// Example 1:
+		System.out.println(fruit.replace('n', 'l'));
+		System.out.println(fruit.replaceAll("n", "l"));
+		System.out.println(fruit.replaceFirst("n", "l"));
+		
+		// Example 2:
+		String sentence = "I like coding!";
+		System.out.println(sentence.replace("like", "love"));
+		
+		sentence = "I don't like cats.";
+		System.out.println(sentence.replace("don't ", "") );
+		
+		// Example 3:
+		Scanner in = new Scanner(System.in);
+		sentence = "name is awesome!";
+		System.out.println("Please enter your name: ");
+		String userName = in.nextLine();
+		System.out.println(sentence.replace("name", userName));
+		in.close();
+		
+
 	}
 
 }
