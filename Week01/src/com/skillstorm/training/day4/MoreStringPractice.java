@@ -57,6 +57,7 @@ public class MoreStringPractice {
 		// String trim method
 		example = example.trim();
 		System.out.println(example);
+		
 	}
 
 }
