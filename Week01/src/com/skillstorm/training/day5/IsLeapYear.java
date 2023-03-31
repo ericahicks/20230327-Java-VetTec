@@ -25,6 +25,10 @@ public class IsLeapYear {
 			System.out.println("No, " + year + " is not a leap year.");
 		}
 		in.close();
+		
+		// We can refactor to use 
+		// else-if
+		
 	}
 
 }
