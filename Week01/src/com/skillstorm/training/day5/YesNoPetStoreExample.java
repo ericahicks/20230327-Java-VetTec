@@ -17,7 +17,8 @@ public class YesNoPetStoreExample {
 		if (response.equals("yes") || response.equals("y")) {
 			numPets++;
 			System.out.println(
-					"Here's your cat: \n" + "      |\\      _,,,---,,_\r\n"
+					"Here's your cat: \n" 
+							+ "      |\\      _,,,---,,_\r\n"
 							+ "ZZZzz /,`.-'`'    -.  ;-;;,_\r\n"
 							+ "     |,4-  ) )-,_. ,\\ (  `'-'\r\n"
 							+ "    '---''(_/--'  `-'\\_)  Felix Lee ");
@@ -27,7 +28,8 @@ public class YesNoPetStoreExample {
 		response = in.next().toLowerCase();
 		if (response.equals("yes") || response.equals("y")) {
 			numPets++;
-			System.out.println("Here's your dog: \n" + "(\\,--------'()'--o\r\n"
+			System.out.println("Here's your dog: \n" 
+					+ "(\\,--------'()'--o\r\n"
 					+ " (_    ___    /~\"\r\n" + "  (_)_)  (_)_)");
 		}
 
@@ -35,7 +37,8 @@ public class YesNoPetStoreExample {
 		response = in.next().toLowerCase();
 		if (response.equals("yes") || response.equals("y")) {
 			numPets++;
-			System.out.println("Here's your otter: \n" + "  .-\"\"\"-.\r\n"
+			System.out.println("Here's your otter: \n" 
+					+ "  .-\"\"\"-.\r\n"
 					+ " /      o\\\r\n" + "|    o   0).-.\r\n"
 					+ "|       .-;(_/     .-.\r\n"
 					+ " \\     /  /)).---._|  `\\   ,\r\n"
@@ -51,8 +54,10 @@ public class YesNoPetStoreExample {
 		if (response.equals("yes") || response.equals("y")) {
 			numPets++;
 			System.out.println("Here's your shark: \n"
-					+ "      .            \r\n" + "\\_____)\\_____\r\n"
-					+ "/--v____ __`<         \r\n" + "        )/           \r\n"
+					+ "      .            \r\n" 
+					+ "\\_____)\\_____\r\n"
+					+ "/--v____ __`<         \r\n" 
+					+ "        )/           \r\n"
 					+ "        '");
 		}
 
