@@ -1,4 +1,4 @@
-package com.skillstorm.trainging.day1;
+package com.skillstorm.training.day1;
 
 import java.util.Scanner; 
 // java.lang is imported for me
