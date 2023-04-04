@@ -76,6 +76,7 @@ public class QuizExamples {
 		   System.out.println("Go for a bike ride!");
 		else
 		   System.out.println("Go bowling.");
-		// NOTE: We don't need the curly braces if there is only one line of code
+//		 NOTE: We don't need the curly braces if there is only one line of code
+		
 	}
 }
