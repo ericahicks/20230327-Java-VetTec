@@ -26,6 +26,7 @@ hs_err_pid*
 .project
 .metadata
 bin/**
+bin/
 tmp/**
 tmp/**/*
 *.tmp
