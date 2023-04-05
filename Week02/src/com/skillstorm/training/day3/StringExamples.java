@@ -22,7 +22,7 @@ public class StringExamples {
 		System.out.println(word.replace("n", "l").replace("b", "l")); // lalala
 		System.out.println(word.replace("n", "b").replace("b", "l")); // lalala
 		System.out.println(word.replace("b", "n").replace("n", "l")); // lalala
-		System.out.println(word.replace("b", "n").replace("n", "nan")); // lalala
+		System.out.println(word.replace("b", "n").replace("n", "nan")); // nananananana
 		
 		
 		// Common pitfall
