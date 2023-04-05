@@ -46,7 +46,7 @@ public class ArrayExamples {
 		//---------------------------------------------
 		
 		// I can join a new friend group! by making friends point to a different array
-		friends = new String[2];
+		friends = new String[3];
 		friends[0] = "Natalie";
 		friends[1] = "Sara";
 		friends[2] = "Owen";

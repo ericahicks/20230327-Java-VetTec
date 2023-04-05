@@ -27,8 +27,36 @@ public class StringExamples {
 		
 		// Common pitfall
 		//-------------------------Example 3--------------------
+		// String class variables
 		
+		// String parameter of null
+		printFirst(null); // NullPointerException
+//		printFirst(""); // StringIndexOutOfBoundsException
+		printLast(null);
+		printLast("");
+		printLast("a");
+		printLast("abc");
 		in.close();
+		
+	} // main ends here
+	
+	//------------------Example 4------------------------
+	// String parameters
+	public static void printFirst(String str) {
+		if (str == null || str.isEmpty()) {
+			System.out.println("No character found.");
+		} else {
+			System.out.println(str.charAt(0));
+		}
 	}
-
+	
+	public static void printLast(String str) {
+		if (str == null) {
+			System.out.println("String cannot be null.");
+		} else if (str.isEmpty()) {
+			System.out.println("No character found.");
+		} else {
+			System.out.println(str.charAt(str.length() - 1));
+		}
+	}
 }
