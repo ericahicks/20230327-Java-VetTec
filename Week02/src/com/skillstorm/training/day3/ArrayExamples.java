@@ -24,31 +24,36 @@ public class ArrayExamples {
 		System.out.println(decimals[1]);
 		System.out.println(decimals[2]);
 //		System.out.println(decimals[3]); // ArrayIndexOutOfBoundsException
+
+		System.out.println();
+		System.out.println();
+		System.out.println("--------------------------------------");
 		
 		// ------------------------Example 2-------------------
 		// Trying to change an array
 		//-----------------------------------------------------
-		System.out.println();
-		System.out.println();
-		System.out.println("--------------------------------------");
 		String[] friends = {"Natalie"};
-//		friends[1] = "Sara";
+//		friends[1] = "Sara"; // I cannot add a friend after declaring with a literal
+		friends[0] = "Sara"; // I can only replace a current friend
 		
 		System.out.println(friends.length);
 //		friends.length = 2; // length is declared as final so it is a constant that cannot change
 		
+		// -------------------------------------------
 		// Review of final
 		final int x = 10;
 //		x = 20; // x is final and cannot be reassigned
-		// I can joing a new friend group! by making friends point to a different array
+		//---------------------------------------------
+		
+		// I can join a new friend group! by making friends point to a different array
 		friends = new String[2];
 		friends[0] = "Natalie";
 		friends[1] = "Sara";
 		friends[2] = "Owen";
 		// alternative notation
 		friends = new String[]{"Sara", "Owen"}; 
-//		friends = new String[2]{"Sara", "Owen"}; 
-//		friends = new String[3]{"Sara", "Owen"}; 
+//		friends = new String[2]{"Sara", "Owen"}; // Java does not like both a size and a literal
+//		friends = new String[3]{"Sara", "Owen"}; // because we could get into a inconsistency situation
 	}
 
 }
