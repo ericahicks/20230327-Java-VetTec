@@ -4,7 +4,7 @@ public class WhatWillThisDo {
 	
 	public static void main(String[] args) {
 		int x = doStuff();
-		System.out.println(x);
+		System.out.println(x); // Drop in the chat what you think this will print
 	}
 	
 	public static int doStuff() {
