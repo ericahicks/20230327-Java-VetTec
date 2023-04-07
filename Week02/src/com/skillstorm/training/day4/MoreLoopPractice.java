@@ -47,7 +47,6 @@ public class MoreLoopPractice {
 		}
 		System.out.println("--------------------------------");
 		
-
 		// Print out the letters of the Alphabet from A-Z
 		short startLetter = (short) 'a';
 		short endLetter = (short) 'z';

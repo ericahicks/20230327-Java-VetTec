@@ -61,7 +61,7 @@ public class RewriteLoops {
 		}
 		System.out.println("max is " + max);
 		
-		// CHALLENGE
+		// Concatenate the strings in an array and print out the result
 		String[] hanson = {"H","a","n","s","o","n"};
 		String strSum = "";
 		for (int i = 0; i < hanson.length; i++) {
