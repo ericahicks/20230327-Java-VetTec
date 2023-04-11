@@ -27,11 +27,12 @@ public class ForEachPractice {
 		System.out.println(max);
 		
 		/////////////////////////////////////////
-		// Can I have a compatible numeric type for the local variable? Yes, because of implicit wide casting
+		// Can I have a compatible numeric type for the local variable? 
+		// Yes, because of implicit wide casting
 		for (long n: numbers) {
 			System.out.println(n);
 		}
-//		for (byte n: numbers) { // We cannot explicit cast, so you must use a type of equal or larger size
+//		for (byte n: numbers) { // We cannot explicit cast, so you must use a type of equal or larger size for the local variable
 //			System.out.println(n);
 //		}
 	}
