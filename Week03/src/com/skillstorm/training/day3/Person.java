@@ -34,4 +34,10 @@ public class Person {
 				+ "favoriteSport=" + this.favoriteSport + ", "
 				+ "lifeSpan=" + Person.lifeSpan;
 	}
+	
+	/////////////////////////////////////////////////////////
+	// Write a method to compare heights
+	public boolean isTallerThan(Person other) {
+		return this.height > other.height;
+	}
 }
