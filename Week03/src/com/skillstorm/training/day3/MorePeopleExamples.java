@@ -11,6 +11,10 @@ public class MorePeopleExamples {
 		blake.favoriteSport = "golf";
 		System.out.println(tony);
 		System.out.println(blake);
+		
+		// calling a non-static method, we need an object
+		boolean result = tony.isTallerThan(blake);
+		System.out.println("Tony is taller than Blake is " + result);
 	}
 
 }

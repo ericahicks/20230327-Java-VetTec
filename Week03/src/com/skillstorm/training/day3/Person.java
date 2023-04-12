@@ -40,4 +40,16 @@ public class Person {
 	public boolean isTallerThan(Person other) {
 		return this.height > other.height;
 	}
+	
+	////////////////////////////////////////////////////////
+	// Write a static method that finds the tallest person in an array
+	public static Person findTallest(Person[] people) {
+		Person tallestPerson = new Person();
+		for (Person p : people) {
+			if (p.height > tallestPerson.height) {
+				tallestPerson = p;
+			}
+		}
+		return tallestPerson;
+	}
 }
