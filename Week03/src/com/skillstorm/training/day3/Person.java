@@ -46,7 +46,7 @@ public class Person {
 	public static Person findTallest(Person[] people) {
 		Person tallestPerson = new Person();
 		for (Person p : people) {
-			if (p.height > tallestPerson.height) {
+			if (p.isTallerThan(tallestPerson)) {
 				tallestPerson = p;
 			}
 		}

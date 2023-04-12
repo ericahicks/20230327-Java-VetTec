@@ -15,6 +15,11 @@ public class MorePeopleExamples {
 		// calling a non-static method, we need an object
 		boolean result = tony.isTallerThan(blake);
 		System.out.println("Tony is taller than Blake is " + result);
+		
+		Person[] people = {tony, blake};
+		// calling a static method, we can
+		Person tallest = Person.findTallest(people);
+		System.out.println("Tallest is " + tallest.name + " who is " + tallest.height + "in tall");
 	}
 
 }
