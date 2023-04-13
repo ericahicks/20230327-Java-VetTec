@@ -29,7 +29,7 @@ public class Animal {
 	
 	////////////////////////////////////////////////
 	/////////////// Overriding Methods /////////////
-
+	@Override
 	public String toString() {
 		return "This is an animal with cuteness " + cuteness;
 	}

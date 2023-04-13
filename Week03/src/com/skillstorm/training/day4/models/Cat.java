@@ -24,6 +24,7 @@ public class Cat extends Animal {
 	/////////////// Overriding Methods /////////////
 	
 	// Overriding the Animal class method toString
+	@Override
 	public String toString() {
 		return "This is a cat with cuteness " + getCuteness();
 	}

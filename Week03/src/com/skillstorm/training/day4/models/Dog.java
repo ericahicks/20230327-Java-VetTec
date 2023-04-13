@@ -45,6 +45,7 @@ public class Dog extends Animal {
 	/////////////// Overriding Methods /////////////
 
 	// Overriding the Animal class method toString
+	@Override
 	public String toString() {
 		return "This is a dog named " + name + " with cuteness " + getCuteness();
 	}
