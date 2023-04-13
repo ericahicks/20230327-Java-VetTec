@@ -13,6 +13,15 @@ public class CarController {
 		SportsUtilityVehicle jaycieSUV = new SportsUtilityVehicle();
 		jaycieSUV.setAmountOfDoors(4);
 		System.out.println("Jaycie's SUV has " + jaycieSUV.getAmountOfDoors() + " doors");
+		
+		jaycieSUV.setFourWheelDrive("All-time four-wheel-drive");
+		System.out.println(jaycieSUV); // print method calls .toString() on the object handed in
+		
+		SportsUtilityVehicle blakesSUV = new SportsUtilityVehicle();
+		System.out.println(blakesSUV);
+		
+		SportsUtilityVehicle tenzinSUV = new SportsUtilityVehicle("Tenzin");
+		System.out.println(tenzinSUV);
 	}
 
 }
