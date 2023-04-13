@@ -1,6 +1,7 @@
 package com.skillstorm.training.day4.models;
 
 public class Car {
+	
 	private int amountOfDoors;
 	
 	public Car() {
