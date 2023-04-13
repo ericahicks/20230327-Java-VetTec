@@ -37,6 +37,12 @@ public class Student {
 	}
 	
 //	public static double calculateGrade(Student s) {
-//		return 0;
+//		if (s.numExamsTaken == 0)
+//			return 0;
+//		double sum = 0;
+//		for (int i = 0; i < s.numExamsTaken; i++) {
+//			sum += s.exams[i];
+//		}
+//		return sum / s.numExamsTaken;
 //	}
 }
