@@ -7,7 +7,7 @@ import com.skillstorm.training.day4.models.Dog;
 public class AnimalsController {
 
 	public static void main(String[] args) {
-		System.out.println(Dog.getPopulation());
+		System.out.println("Dog population is " + Dog.getPopulation());
 		
 		
 		// Creating an Animal, a Dog, and a Cat
