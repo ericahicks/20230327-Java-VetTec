@@ -3,6 +3,7 @@ package com.skillstorm.training.day4.models;
 public class Rectangle {
 	// CHALLENGE fully encapsulate the rectangle class
 	// fully encapsulated = all the properties are private
+	
 	// TODO Drop a screenshot in the chat
 	private double height;
 	private double width;
@@ -41,6 +42,4 @@ public class Rectangle {
 		return height * width;
 	}
 	
-	
-
 }
