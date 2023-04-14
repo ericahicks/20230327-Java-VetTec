@@ -10,7 +10,10 @@ public class EmployeeTests {
 		se.setName("Sam"); // public so inherited
 		System.out.println(se);
 		Employee e = new SalaryEmployee("000");
+		Employee e2 = new HourlyEmployee("123");
 		se.setName("Tom");
+		// BE CAREFUL OF CLASS CAST EXCEPTIONS -- this is us telling Java we will hand it the proper type so it's on us
+		((SalaryEmployee) e).setSalary(200000); // Employee class does not have the method .setSalary so we use casting
 		System.out.printf("$%.2f", e.calculatePaycheck());
 	}
 }
