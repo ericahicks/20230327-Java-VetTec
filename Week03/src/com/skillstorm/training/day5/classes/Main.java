@@ -20,7 +20,24 @@ public class Main {
 		////////////////////////////////////////////////////////////
 		// Set up a for each loop to have all the animals at the zoo eat
 		// CHALLENGE to put in the chat
-		
+		method1(zoo);
+		method2(zoo);
+	}
+	
+	public static void method1(Animal[] zoo) {
+		System.out.println("For loop prints: ");
+		// For loop
+		for (int i = 0; i < zoo.length; i++) {
+			zoo[i].eat();
+		}
+	}
+	
+	public static void method2(Animal[] zoo) {
+		System.out.println("For each loop prints: ");
+		// For each loop
+		for (Animal a : zoo) {
+			a.eat();
+		}
 	}
 
 }
