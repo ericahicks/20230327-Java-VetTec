@@ -36,6 +36,22 @@ public class ComparisonExamples {
 
 		System.out.println("comparing 1000 and 100");
 		System.out.println("1000".compareTo("100")); // positive
+		
+		
+		Car c1 = new Car();
+		c1.make = "Toyota";
+		c1.model = "Tacoma";
+		c1.color = "grey";
+		Object o = new Object();
+		System.out.println(c1.equals(o));
+		
+		Car c2 = new Car();
+		c2.make = "Toyota";
+		c2.model = "Tacoma";
+		c2.color = "pink";
+		
+		boolean result = c1.equals(c2);
+		System.out.println(result);
 	}//
 
 }
