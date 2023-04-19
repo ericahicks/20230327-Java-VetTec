@@ -101,11 +101,11 @@ public class IceCreamShopTests {
 		System.out.println(myShop); 
 		System.out.println();
 		
-		myShop.removeFlavor("Cherry Garcia"); // remove first
+		myShop.removeFlavor("Strawberry"); // remove first
 		System.out.println(myShop);
 		System.out.println();
 		
-		myShop.removeFlavor("Oreo"); // remove last
+		myShop.removeFlavor("Oreo"); // remove somewhere in the middle
 		System.out.println(myShop);
 		
 		//////////////// Test 4 ///////////////

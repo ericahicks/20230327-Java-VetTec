@@ -95,14 +95,37 @@ public class IceCreamShop {
 		}
 	}
 	
+//	public void removeFlavor(String flavor) {
+//		if (this.flavors.length == 0 || flavor == null || flavor.isEmpty())
+//			return; // saves time
+//		
+//		// Option 1: Find the index of the flavor in the array, and remove it from the list
+//		//  by copying the contents after the flavor to the left one index
+//		boolean reachedFlavorToRemove = false;
+//		for (int i = 0; i < this.numFlavorsInStock; i++) {
+//			// step 1: check if we've found the flavor to remove
+//			if (this.flavors[i].equals(flavor))
+//				reachedFlavorToRemove = true;
+//			// step 2: if the flavor hasn't been found yet, don't do anything
+//			// step 3: if the flavor has been found, start doing stuff
+//			if (reachedFlavorToRemove) {
+//				// Step 3a: Shift the elements to the left by
+//				//    Copying the next element into the current element BE CAREFUL WE DON'T GO OUT OF BOUNDS
+//				if (i < this.numFlavorsInStock - 1)
+//					this.flavors[i] = this.flavors[i + 1];
+//				else
+//					// Step 3b: when done shifting, erase the rest
+//					this.flavors[i] = null; // reached the end, so just put null since no next element to copy
+//			}
+//		} // end of loop
+//		if (reachedFlavorToRemove) { // this should always be true bc we did a contains check
+//			this.numFlavorsInStock--;
+//		}
+//
+//
+//	}
+	
 	public void removeFlavor(String flavor) {
-		if (this.flavors.length == 0 || flavor == null || flavor.isEmpty())
-			return; // saves time
-		
-		// Option 1: Find the index of the flavor in the array, and remove it from the list
-		//  by copying the contents after the flavor to the left one index
-
-
 		// Option 2: Recreate the array copying everything but the flavor specified
 		String[] newArray = new String[MAX_CAPACITY];
 		int newIndex = 0;
