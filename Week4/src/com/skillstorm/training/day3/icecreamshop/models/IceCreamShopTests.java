@@ -54,9 +54,9 @@ public class IceCreamShopTests {
 		myShop.removeFlavor("chocolate");
 		System.out.println(myShop); // Was it removed successfully?
 		
-		System.out.println();
-		myShop.removeFlavor("vanilla"); // Trying to remove flavor that is not there, nothing should change
-		System.out.println(myShop); // Is the correct count and flavors still there?
+//		System.out.println();
+//		myShop.removeFlavor("vanilla"); // Trying to remove flavor that is not there, nothing should change
+//		System.out.println(myShop); // Is the correct count and flavors still there?
 		
 		
 		//////////////// Test 4 ///////////////

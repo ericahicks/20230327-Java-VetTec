@@ -109,16 +109,17 @@ public class IceCreamShop {
 			} else {
 				// don't copy over the flavor
 				// don't increment the counter
-				// decrease the number of flavors in stock
-				this.numFlavorsInStock--;
 				// flag that we need to this.flavors to contain the newArray
 				flavorRemoved = true;
 			}
 		}
 		// If not found, do not set this.flavors to the newArray
-		if (flavorRemoved) 
+		if (flavorRemoved) {
 			this.flavors = newArray;
+			this.numFlavorsInStock--;
+		}
 	}
+	
 	
 	//---------------------------------------------------------------
 	// Override the toString method
