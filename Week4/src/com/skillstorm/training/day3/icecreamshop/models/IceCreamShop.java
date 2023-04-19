@@ -81,7 +81,13 @@ public class IceCreamShop {
 	//---------------------------------------------------------------
 	// Has the ability to run out of and restock ice cream flavors through publicly accessible methods
 	// Methods
-	
+	public void addFlavor(String flavor) {
+		// Make sure we don't exceed the max capacity?
+		
+		// Add it at the index of the numFlavors
+		this.flavors[this.numFlavorsInStock] = flavor;
+		this.numFlavorsInStock++;
+	}
 	
 	//---------------------------------------------------------------
 	// Override the toString method
