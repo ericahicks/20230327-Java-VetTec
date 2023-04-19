@@ -99,6 +99,7 @@ public class IceCreamShop {
 		// Option 2: Recreate the array copying everything but the flavor specified
 		String[] newArray = new String[MAX_CAPACITY];
 		int newIndex = 0;
+		boolean flavorRemoved = false;
 		for (int i = 0; i < this.numFlavorsInStock; i++) {
 			if (!this.flavors[i].equals(flavor)) {
 				// copy over the flavor
@@ -110,9 +111,13 @@ public class IceCreamShop {
 				// don't increment the counter
 				// decrease the number of flavors in stock
 				this.numFlavorsInStock--;
+				// flag that we need to this.flavors to contain the newArray
+				flavorRemoved = true;
 			}
 		}
-		this.flavors = newArray;
+		// If not found, do not set this.flavors to the newArray
+		if (flavorRemoved) 
+			this.flavors = newArray;
 	}
 	
 	//---------------------------------------------------------------
