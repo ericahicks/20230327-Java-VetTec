@@ -45,6 +45,7 @@ public class IceCreamShop {
 	public IceCreamShop(String name, String address) {
 		this.name = name;
 		this.address = address;
+		numShops++;
 	}
 	//---------------------------------------------------------------
 	// The data is fully encapsulated via private fields and public getters and setters
@@ -67,6 +68,10 @@ public class IceCreamShop {
 	
 	public String[] getFlavors() {
 		return this.flavors;
+	}
+	
+	public static int getNumShops() {
+		return IceCreamShop.numShops; // Access static variables in a static way (use a class name not an object)
 	}
 	
 	// Prevent the addition of empty strings to the ice cream flavors array
