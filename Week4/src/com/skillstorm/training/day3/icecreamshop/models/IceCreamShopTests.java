@@ -45,8 +45,9 @@ public class IceCreamShopTests {
 		
 		// Remove a flavor to one of the Ice Cream Shop's inventory
 		// Print out both shops again
-		
-
+		System.out.println();
+		myShop.addFlavor("chocolate");
+		System.out.println(myShop);
 		
 
 		//////////////// Test 4 ///////////////
