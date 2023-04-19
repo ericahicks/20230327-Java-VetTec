@@ -1,5 +1,7 @@
 package com.skillstorm.training.day3.icecreamshop.models;
 
+import java.util.Arrays;
+
 /*
 REQUIREMENTS
 - Defines properties such as ice cream flavors, name, and address
@@ -89,6 +91,30 @@ public class IceCreamShop {
 		this.numFlavorsInStock++;
 	}
 	
+	public void removeFlavor(String flavor) {
+		// Option 1: Find the index of the flavor in the array, and remove it from the list
+		//  by copying the contents after the flavor to the left one index
+
+
+		// Option 2: Recreate the array copying everything but the flavor specified
+		String[] newArray = new String[MAX_CAPACITY];
+		int newIndex = 0;
+		for (int i = 0; i < this.numFlavorsInStock; i++) {
+			if (!this.flavors[i].equals(flavor)) {
+				// copy over the flavor
+				newArray[newIndex] = this.flavors[i];
+				// increment the counter
+				newIndex++;
+			} else {
+				// don't copy over the flavor
+				// don't increment the counter
+				// decrease the number of flavors in stock
+				this.numFlavorsInStock--;
+			}
+		}
+		this.flavors = newArray;
+	}
+	
 	//---------------------------------------------------------------
 	// Override the toString method
 	@Override
@@ -106,9 +132,57 @@ public class IceCreamShop {
 		result = result.substring(0, result.length() - 2);
 		return result;
 	}
+
+	// Best practice is always implement hashCode when you implement equals
+	// so they match, don't worry about it for now, we will talk about this data structures week
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + Arrays.hashCode(flavors);
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) // checking if the memory addresses are the same
+			return true;
+		if (obj == null) // check if the object I'm comparing to is null, I know I'm not null, so I can return false
+			return false;
+		if (getClass() != obj.getClass()) // comparing class makes sure they are the exact same class
+//		if (obj instanceof IceCreamShop) { // matches if it is IceCreamShop or any of its subclasses
+			return false;
+		IceCreamShop other = (IceCreamShop) obj; // cast to same type
+		if (other.flavors.length != this.flavors.length)  // check the length
+			return false;
+		for (int i = 0; i < other.flavors.length; i++) {// check the elements match
+			if (!other.flavors[i].equals(this.flavors[i])) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	//---------------------------------------------------------------
 	// Override the equals method to compare two IceCreamShop objects (only compare the array of flavors)
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }
