@@ -49,6 +49,25 @@ public class IceCreamShop {
 	//---------------------------------------------------------------
 	// The data is fully encapsulated via private fields and public getters and setters
 	// Getters and Setters
+	public String getName() {
+		return this.name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public String getAddress() {
+		return this.address;
+	}
+	
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	
+	public String[] getFlavors() {
+		return this.flavors;
+	}
 	
 	// Prevent the addition of empty strings to the ice cream flavors array
 	
@@ -61,7 +80,21 @@ public class IceCreamShop {
 	
 	//---------------------------------------------------------------
 	// Override the toString method
-	
+	@Override
+	public String toString() {
+		String result = "";
+		// Include the name
+		result += "Name: " + this.name + "\n";
+		// Include the address
+		result += "Address: " + this.address + "\n";
+		// Include a list of the flavors in stock
+		result += this.numFlavorsInStock + " flavors available: \n";
+		for (int i = 0; i < this.numFlavorsInStock; i++) {
+			result += this.flavors[i] + ", ";
+		}
+		result = result.substring(0, result.length() - 2);
+		return result;
+	}
 	
 	
 	//---------------------------------------------------------------

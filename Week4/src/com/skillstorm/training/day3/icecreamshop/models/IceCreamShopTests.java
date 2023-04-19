@@ -3,10 +3,15 @@ package com.skillstorm.training.day3.icecreamshop.models;
 public class IceCreamShopTests {
 	
 	public static void main(String[] args) {
+		// Testing remove 2 characters from a string
+
+		String str = "radar";
+		str = str.substring(0, str.length() - 2);
+		System.out.println(str);
+		
 		//////////////// Test 1///////////////
 		// Create an Ice Cream Shop
 		// Print it out
-		
 		
 
 		//////////////// Test 2 ///////////////
