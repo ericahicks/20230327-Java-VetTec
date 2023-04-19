@@ -84,14 +84,21 @@ public class IceCreamShop {
 	// Has the ability to run out of and restock ice cream flavors through publicly accessible methods
 	// Methods
 	public void addFlavor(String flavor) {
-		// Make sure we don't exceed the max capacity?
-		
-		// Add it at the index of the numFlavors
-		this.flavors[this.numFlavorsInStock] = flavor;
-		this.numFlavorsInStock++;
+		if (this.numFlavorsInStock < this.flavors.length // Make sure we don't exceed the max capacity
+				&& flavor != null && !flavor.isEmpty() // Make sure flavor isn't null and isn't empty
+				&& this.indexOf(flavor) < 0) { // Make sure we don't already have this element
+			
+			// Add it at the index of the numFlavors
+			this.flavors[this.numFlavorsInStock] = flavor;
+			// Increment the number of flavors in stock
+			this.numFlavorsInStock++;
+		}
 	}
 	
 	public void removeFlavor(String flavor) {
+		if (this.flavors.length == 0 || flavor == null || flavor.isEmpty())
+			return; // saves time
+		
 		// Option 1: Find the index of the flavor in the array, and remove it from the list
 		//  by copying the contents after the flavor to the left one index
 
@@ -148,7 +155,10 @@ public class IceCreamShop {
 		result = prime * result + Arrays.hashCode(flavors);
 		return result;
 	}
-
+	
+	//---------------------------------------------------------------
+	// Override the equals method to compare two IceCreamShop objects (only compare the array of flavors) 
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) // checking if the memory addresses are the same
@@ -169,26 +179,13 @@ public class IceCreamShop {
 		return true;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	//---------------------------------------------------------------
-	// Override the equals method to compare two IceCreamShop objects (only compare the array of flavors)
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	private int indexOf(String str) {
+		for (int i = 0; i < this.numFlavorsInStock; i++) {
+			if (this.flavors[i].equals(str)) {
+				return i;
+			}
+		}
+		return -1; // not found
+	}
 	
 }
