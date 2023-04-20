@@ -87,7 +87,9 @@ public class ArrayListPractice {
 		System.out.println("Students was: " + students);
 		System.out.println("The order is: ");
 //		printRandomOrder(students);
-		prettyPrintRandomOrder(students);
+//		prettyPrintRandomOrder(students);
+		
+		printRandomOrderVersionTony(students);
 	}
 	
 	// Example 10: Remove a random student from the list
@@ -118,17 +120,26 @@ public class ArrayListPractice {
 		int numStudents = students.size();
 		for (int i = 0; i < numStudents; i++) { // WARNING do not use students.size() because it changes every loop
 			String studentRemoved;
+			
 			// Remove a random student
 			// Step 1: Generate a random index
 			int range = students.size();
 			int randomIndex = (int) (Math.random() * range); // offset? no because we want 0-indexed
 //			System.out.println("Index chosen " + randomIndex); // Make sure not (int) Math.random() * range which is always 0
+			
 			// Step 2: Remove the student and store the value
 			studentRemoved = students.remove(randomIndex);
 			
 			// Print out who we removed
 			int humanReadableIndex = i + 1;
 			System.out.println(humanReadableIndex + ". " + studentRemoved);
+		}
+	}
+	
+	public static void printRandomOrderVersionTony(ArrayList<String> students) {
+		for (int i = students.size(); i > 0; i--) {
+			String studentRemoved = students.remove((int) (Math.random() * students.size()));
+			System.out.println(studentRemoved);
 		}
 	}
 
