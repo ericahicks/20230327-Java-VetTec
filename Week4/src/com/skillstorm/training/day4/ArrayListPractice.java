@@ -66,8 +66,29 @@ public class ArrayListPractice {
 		names.set(jonsIndex, "Miles");
 		System.out.println(names);
 		System.out.println("Is Miles presenting today? " + names.contains("Miles"));
+		
+		// Example 10: Testing  remove random student
+		System.out.println("Students was: " + names);
+		removeRandomStudent(names); // static methods must be called in a static way. Do I need class name? no implied
+		System.out.println("Students is now: " + names);
 	}
 	
+	// Example 10: Remove a random student from the list
+	public static void removeRandomStudent(ArrayList<String> students) {
+		String studentRemoved;
+		// Remove a random student
+		// Step 1: Generate a random index
+		int range = students.size();
+		int randomIndex = (int) (Math.random() * range); // offset? no because we want 0-indexed
+//		System.out.println("Index chosen " + randomIndex); // Make sure not (int) Math.random() * range which is always 0
+		// Step 2: Remove the student and store the value
+		studentRemoved = students.remove(randomIndex);
+		
+		// Print out who we removed
+		System.out.println(studentRemoved);
+	}
+	
+	// Example 11:
 	// TODO Generate random order of students
 	public static void printOrder(ArrayList<String> students) {
 		
