@@ -95,6 +95,8 @@ public class IceCreamShop {
 			throw new InvalidFlavorException("Please provide a valid flavor name.");
 		if (this.indexOf(flavor) >= 0)
 			throw new DuplicateFlavorException("The flavor " + flavor + " is already in stock.");
+		
+		
 		// Add it at the index of the numFlavors
 		this.flavors[this.numFlavorsInStock] = flavor;
 		// Increment the number of flavors in stock
@@ -209,9 +211,9 @@ public class IceCreamShop {
 		return true;
 	}
 	
-	private int indexOf(String str) {
+	private int indexOf(String flavor) {
 		for (int i = 0; i < this.numFlavorsInStock; i++) {
-			if (this.flavors[i].equals(str)) {
+			if (this.flavors[i].equals(flavor)) {
 				return i;
 			}
 		}
