@@ -1,15 +1,18 @@
 package com.skillstorm.training.day5;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class WrapperPractice {
 
 	public static void main(String[] args) {
-//		example6();
+		example9();
 		
 
 		// Hexidecimal example color code to decimal
 		// User enters a color CD5C44
-		String color = "CD5C44";
-		colorDecoder(color);
+//		String color = "CD5C44";
+//		colorDecoder(color);
 	}
 
 	// Example 1: Explicitly creating a wrapper object
@@ -63,8 +66,8 @@ public class WrapperPractice {
 
 	
 
-	// Example 4: Casting between byte > short > char > int > long > float >
-	// double with wrappers
+	// Example 4: Casting between 
+	//  byte > short > char > int > long > float > double with wrappers
 	public static void example4() {
 		int a = 1;
 		double b = a; // works bc of wide casting
@@ -72,6 +75,7 @@ public class WrapperPractice {
 		Integer x = Integer.valueOf(1);
 //		Double y = x; // type mismatch cannot convert from type Integer > Double
 		Double y = x.doubleValue();
+		Double z = (double) x; // auto-unboxing to int then needs explict cast to double to autobox to Double
 	}
 
 	// Example 5: Arithmetic with wrapper classes
@@ -118,12 +122,49 @@ public class WrapperPractice {
 		System.out.println("copyTest is still " + copyTest);
 	}
 
+	// Example 8: Wrapper classes in an ArrayList
 	public static void example8() {
-
+		// Polymorphism applies
+		ArrayList<Number> numbers = new ArrayList<>();
+		numbers.add(Byte.valueOf((byte)1));
+		numbers.add(Short.valueOf((short)1));
+		numbers.add(Integer.valueOf(1));
+		numbers.add(Long.valueOf(1));
+		numbers.add(Float.valueOf(1));
+		numbers.add(Double.valueOf(1));
+		System.out.println(numbers);
+		
+		// Polymorphism here? siblings don't work
+		ArrayList<Double> bigNumbers = new ArrayList<>();
+		bigNumbers.add(Double.valueOf(1));
+		bigNumbers.add((double)Float.valueOf(1)); // It autounboxes to int, does the cast to double, autoboxes again
+		bigNumbers.add((double)Long.valueOf(1)); // It autounboxes to int, does the cast to double, autoboxes again
+		bigNumbers.add((double)Integer.valueOf(1)); // It autounboxes to int, does the cast to double, autoboxes again
+		bigNumbers.add((double)Short.valueOf((short)2));
+		bigNumbers.add((double)Byte.valueOf((byte)2));
 	}
 
+	// Example9: ArrayList of wrapper classes and making copies
+	// Are the copies independent of eachother?
 	public static void example9() {
-
+		ArrayList<Integer> numbers = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
+		ArrayList<Integer> copyOfNumbers = numbers;
+		ArrayList<Integer> betterCopyOfNumbers = new ArrayList<>(numbers);
+		System.out.println("numbers is              " + numbers);
+		System.out.println("copyOfNumbers is        " + copyOfNumbers);
+		System.out.println("betterCopyOfNumbers is  " + betterCopyOfNumbers);
+		System.out.println("Change made:");
+		numbers.set(0, 10);
+		System.out.println("numbers is              " + numbers);
+		System.out.println("copyOfNumbers is        " + copyOfNumbers);
+		System.out.println("betterCopyOfNumbers is  " + betterCopyOfNumbers);
 	}
+	
+	// Deep copy vs Shallow copy
+	
 
+}
+
+class Wrapper {
+	Integer x;
 }
