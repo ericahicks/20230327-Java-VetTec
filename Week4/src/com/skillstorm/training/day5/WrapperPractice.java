@@ -6,13 +6,13 @@ import java.util.Arrays;
 public class WrapperPractice {
 
 	public static void main(String[] args) {
-		example9();
+		example6();
 		
 
 		// Hexidecimal example color code to decimal
 		// User enters a color CD5C44
-//		String color = "CD5C44";
-//		colorDecoder(color);
+		String color = "CD5C44";
+		colorDecoder(color);
 	}
 
 	// Example 1: Explicitly creating a wrapper object
@@ -102,11 +102,11 @@ public class WrapperPractice {
 	}
 	
 	public static void colorDecoder(String color) {
-		Integer red = Integer.parseInt(color.substring(0, 2), 16);
+		int red = Integer.parseInt(color.substring(0, 2), 16);
 //		System.out.println(red);
-		Integer green = Integer.parseInt(color.substring(2, 4), 16);
+		int green = Integer.parseInt(color.substring(2, 4), 16);
 //		System.out.println(green);
-		Integer blue = Integer.parseInt(color.substring(4, 6), 16);
+		int blue = Integer.parseInt(color.substring(4, 6), 16);
 //		System.out.println(blue);
 		System.out.println(String.format("The color 0x%s is rgb(%d,%d,%d)", color, red, green, blue));
 	}
