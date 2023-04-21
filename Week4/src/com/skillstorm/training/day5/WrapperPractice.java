@@ -3,7 +3,13 @@ package com.skillstorm.training.day5;
 public class WrapperPractice {
 
 	public static void main(String[] args) {
-		example2();
+//		example6();
+		
+
+		// Hexidecimal example color code to decimal
+		// User enters a color CD5C44
+		String color = "CD5C44";
+		colorDecoder(color);
 	}
 
 	// Example 1: Explicitly creating a wrapper object
@@ -20,7 +26,10 @@ public class WrapperPractice {
 
 	// Example 1b: Explicitly unwrapping an Integer
 	public static void example1b() {
-
+		Integer i = Integer.valueOf(10);
+		int j = i.intValue();
+		System.out.println(i instanceof Integer); // true
+//		System.out.println(i.intValue() instanceof Integer); // incompatible operator types int and Integer
 	}
 
 	// Example 2: Comparing wrapper objects using == vs .equals
@@ -41,18 +50,28 @@ public class WrapperPractice {
 
 	// Example 3: Implicitly creating a wrapper object using "Autoboxing"
 	public static void example3() {
-
+		Integer a = 1;
+		Integer b = 2; 
+		int x = a;
+		int y = b;
+		
+		System.out.println(a);
+		System.out.println(b);
+		System.out.println(x);
+		System.out.println(y);
 	}
 
-	// Example 3b: Implicitly unwrapping an Integer using "Auto-unboxing"
-	public static void example3b() {
-
-	}
+	
 
 	// Example 4: Casting between byte > short > char > int > long > float >
 	// double with wrappers
 	public static void example4() {
-
+		int a = 1;
+		double b = a; // works bc of wide casting
+		
+		Integer x = Integer.valueOf(1);
+//		Double y = x; // type mismatch cannot convert from type Integer > Double
+		Double y = x.doubleValue();
 	}
 
 	// Example 5: Arithmetic with wrapper classes
@@ -62,12 +81,41 @@ public class WrapperPractice {
 
 	// Example 6: String conversion
 	public static void example6() {
-
+		// User enters in a value between 1 and 10
+		// Enter a value between 1 and 10
+		String response = "10";
+		int num = Integer.valueOf(response); // returns an Integer object which gets unboxed
+		int numV2 = Integer.parseInt(response); // returns a primitive int
+		
+		System.out.println(num + " and " + numV2);
+		System.out.println("The value of the String \"10\" is: ");
+		// .valueOf with a radix specified (decimal is 10, binary is 2, hexidecmil is 16, octal is 8)
+		System.out.println(Integer.valueOf("10", 10));
+		System.out.println(Integer.valueOf("10", 2));
+		System.out.println(Integer.valueOf("10", 16));
+		System.out.println(Integer.valueOf("10", 8));
+		
+	}
+	
+	public static void colorDecoder(String color) {
+		Integer red = Integer.parseInt(color.substring(0, 2), 16);
+//		System.out.println(red);
+		Integer green = Integer.parseInt(color.substring(2, 4), 16);
+//		System.out.println(green);
+		Integer blue = Integer.parseInt(color.substring(4, 6), 16);
+//		System.out.println(blue);
+		System.out.println(String.format("The color 0x%s is rgb(%d,%d,%d)", color, red, green, blue));
 	}
 
 	// Example 7: Wrapper classes are immutable
 	public static void example7() {
-
+		Integer test = 1;
+		Integer copyTest = test;
+		System.out.println("test is      " + test);
+		System.out.println("copyTest is  " + copyTest);
+		test++;
+		System.out.println("test is now       " + test);
+		System.out.println("copyTest is still " + copyTest);
 	}
 
 	public static void example8() {
