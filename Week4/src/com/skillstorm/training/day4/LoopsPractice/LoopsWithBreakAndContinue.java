@@ -10,9 +10,9 @@ public class LoopsWithBreakAndContinue {
 	public static void main(String[] args) {
 		/////////////////////////////////////////////
 		// What will the below code print?
-		mystery1();
+//		mystery1();
 		System.out.println();
-		mystery2("apple");
+		mystery2("cvs");
 	}
 
 	public static void mystery1() {
@@ -37,12 +37,13 @@ public class LoopsWithBreakAndContinue {
 		ArrayList<String> fortune500List = getCompanies(); // Assume this returns complete list
 		
 		int i;
-		for (i = 0; i < 10; i++) {
+		for (i = 0; i < 500; i++) {
 			if ( fortune500List.get(i).toLowerCase().contains( companyName.toLowerCase() ) ) {
 				break;
 			}
 		}
 		System.out.println( i < 10 ? "Yes" : "No");
+		System.out.println(i);
 	}
 
 	
