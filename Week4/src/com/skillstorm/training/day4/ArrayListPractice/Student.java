@@ -1,6 +1,6 @@
 package com.skillstorm.training.day4.ArrayListPractice;
 
-public class Student {
+public class Student implements Comparable<Student> {
 	
 	private String name;
 	
@@ -41,4 +41,14 @@ public class Student {
 		return name + "'s grade is " + grade + "%\n";
 	}
 
+	@Override // 0 if equal
+	          // neg if this is smaller
+	          // pos if this is larger
+	public int compareTo(Student other) {
+//		return this.name.compareTo(other.name);
+//		return this.grade - other.grade; // returns 0 if they are the same
+	                                    // returns < 0 if this.grade is < other.grade
+                                         // returns > 0 if this.grade is > other.grade
+		return other.grade - this.grade;
+	}
 }

@@ -83,16 +83,23 @@ public class IceCreamShop {
 	//---------------------------------------------------------------
 	// Has the ability to run out of and restock ice cream flavors through publicly accessible methods
 	// Methods
-	public void addFlavor(String flavor) {
-		if (this.numFlavorsInStock < this.flavors.length // Make sure we don't exceed the max capacity
-				&& flavor != null && !flavor.isEmpty() // Make sure flavor isn't null and isn't empty
-				&& this.indexOf(flavor) < 0) { // Make sure we don't already have this element
-			
-			// Add it at the index of the numFlavors
-			this.flavors[this.numFlavorsInStock] = flavor;
-			// Increment the number of flavors in stock
-			this.numFlavorsInStock++;
-		}
+	public void addFlavor(String flavor) throws StockOverflowException, DuplicateFlavorException, InvalidFlavorException {
+		
+//		if (this.numFlavorsInStock < this.flavors.length // Make sure we don't exceed the max capacity
+//				&& flavor != null && !flavor.isEmpty() // Make sure flavor isn't null and isn't empty
+//				&& this.indexOf(flavor) < 0) { // Make sure we don't already have this element
+		if (this.numFlavorsInStock >= this.flavors.length)
+//			System.out.println("No room in inventory for additional flavors."); // DON'T clutter user console
+			throw new StockOverflowException("No room in inventory for additional flavors.");
+		if (flavor == null || flavor.isEmpty())
+			throw new InvalidFlavorException("Please provide a valid flavor name.");
+		if (this.indexOf(flavor) >= 0)
+			throw new DuplicateFlavorException("The flavor " + flavor + " is already in stock.");
+		// Add it at the index of the numFlavors
+		this.flavors[this.numFlavorsInStock] = flavor;
+		// Increment the number of flavors in stock
+		this.numFlavorsInStock++;
+//		}
 	}
 	
 //	public void removeFlavor(String flavor) {
