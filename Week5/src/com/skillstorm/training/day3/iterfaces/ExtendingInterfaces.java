@@ -9,35 +9,23 @@ interface Alive {
 	void die();
 }
 
-interface Animal extends Alive {
+interface Animal extends Alive { // Interfaces can extend other interface BUT they cannot "implement" other interfaces
 	void move();
 }
+
+//interface Alien implements Alive { // Interfaces cannot implement other interfaces but they can "extend" other interfaces
+//	default void live() {System.out.println("weird"); }
+//	default void die() {System.out.println("weird"); }
+//}
 
 interface Plant extends Alive {
 	void photosynthesize();
 }
 
-class DragonFly implements Animal {
+//class DragonFly implements Animal {
+//	
+//}
 
-	@Override
-	public void live() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void die() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void move() {
-		// TODO Auto-generated method stub
-		
-	}
-	
-}
 /////////////////////////////////////////////////////
 // Example 2: Doors can open close and some can lock
 /////////////////////////////////////////////////////
@@ -49,30 +37,6 @@ interface LockedDoor extends Door {
 	void lock();
 	void unlock();
 }
-class BarnDoor implements LockedDoor {
-
-	@Override
-	public void open() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void close() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void lock() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void unlock() {
-		// TODO Auto-generated method stub
-		
-	}
-	
-}
+//class BarnDoor implements LockedDoor {
+//	
+//}
