@@ -27,10 +27,11 @@ public class BitWiseOperators {
 		System.out.println(String.format("%32s", Integer.toBinaryString(c2)).replace(" ", "0") );
 		System.out.println("c2 is " + c2); // 5
 		
+		// only "integral" values can use the bit shift operator
 		double test = 1.0;
 		test = (int)test >> 1; // can't do decimal
 		
-		byte test2 = (byte) 1;
+		byte test2 = (byte) 1; 
 		System.out.println(test2 >> 1);
 		
 
@@ -49,6 +50,18 @@ public class BitWiseOperators {
 //		System.out.println(test5 & 1);
 		System.out.println(test5 & true); // I can do & | ~ ^ with boolean
 		System.out.println(test5 | true);
+		
+		// Note the binary representation of -1 is always all ones (for integral values)
+		byte negativeByte = -1;
+//		System.out.println(String.format("%32s", Integer.toBinaryString(negativeByte)).replace(" ", "0") );
+		System.out.println(String.format("%32s", Integer.toBinaryString(Byte.toUnsignedInt(negativeByte))));
+		short negativeShort = -1;
+//		System.out.println(String.format("%32s", Integer.toBinaryString(negativeShort)).replace(" ", "0") );
+		System.out.println(String.format("%32s", Integer.toBinaryString(Short.toUnsignedInt(negativeShort))) );
+		int negativeInt = -1;
+		System.out.println(String.format("%32s", Integer.toBinaryString(negativeInt)).replace(" ", "0") );
+		long negativeLong = -1;
+		System.out.println(String.format("%64s", Long.toBinaryString(negativeLong)).replace(" ", "0") );
 	}
 
 }
