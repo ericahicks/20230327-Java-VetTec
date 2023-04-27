@@ -52,6 +52,7 @@ public class BitWiseOperators {
 		System.out.println(test5 | true);
 		
 		// Note the binary representation of -1 is always all ones (for integral values)
+		System.out.println("Negative representations of -1 in all integral data types");
 		byte negativeByte = -1;
 //		System.out.println(String.format("%32s", Integer.toBinaryString(negativeByte)).replace(" ", "0") );
 		System.out.println(String.format("%32s", Integer.toBinaryString(Byte.toUnsignedInt(negativeByte))));
@@ -59,9 +60,15 @@ public class BitWiseOperators {
 //		System.out.println(String.format("%32s", Integer.toBinaryString(negativeShort)).replace(" ", "0") );
 		System.out.println(String.format("%32s", Integer.toBinaryString(Short.toUnsignedInt(negativeShort))) );
 		int negativeInt = -1;
-		System.out.println(String.format("%32s", Integer.toBinaryString(negativeInt)).replace(" ", "0") );
+		System.out.println(String.format("%32s", Integer.toBinaryString(negativeInt)));
 		long negativeLong = -1;
-		System.out.println(String.format("%64s", Long.toBinaryString(negativeLong)).replace(" ", "0") );
+		System.out.println(String.format("%64s", Long.toBinaryString(negativeLong)));
+		System.out.println("Floating point represetations of -1");
+		float negativeFloat = -1;
+		System.out.println(String.format("%32s", Integer.toBinaryString(Float.floatToIntBits(negativeFloat))).replace(" ", "0") );
+		double negativeDouble = -1;
+		System.out.println(String.format("%64s", Long.toBinaryString(Double.doubleToLongBits(negativeDouble))).replace(" ", "0") );
+		System.out.println("\u203Esign bit");
 	}
 
 }
