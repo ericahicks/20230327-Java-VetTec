@@ -1,0 +1,27 @@
+Quiz Topics
+------
+- Iterators
+- Nested Loops
+- Loop labels and break/continue
+- Bitwise operators
+   - order of operation 
+- Prefix/Postfix
+- Stack and Heap
+   - final keyword does not prevent us mutating an object
+- Random class
+- Command line arguments 
+   - javac -d
+   - ./ vs ../
+- Declaration and initialization of variables
+- package imports and static imports
+- static and anonymous blocks
+- ArrayList methods
+   - boolean add(E e) // true if list changed
+   - void add(int index, E e)
+   - E set(int index, E e) // returns E old value
+   - boolean remove(E e) // true if list changed
+   - E remove (int index) // returns E
+   - boolean remove(Object o) // true if list changed
+   - boolean removeAll(E e)
+
+TODO 10:30am start Enthuware Test 2

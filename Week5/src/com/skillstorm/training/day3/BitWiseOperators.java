@@ -69,6 +69,11 @@ public class BitWiseOperators {
 		double negativeDouble = -1;
 		System.out.println(String.format("%64s", Long.toBinaryString(Double.doubleToLongBits(negativeDouble))).replace(" ", "0") );
 		System.out.println("\u203Esign bit");
+		
+		int n = 100024859;
+		System.out.println("     x=" + n);
+		System.out.println("-1 & x=" + (n & -1));
+		System.out.println(" 0 & x=" + (n & 0));
 	}
 
 }
