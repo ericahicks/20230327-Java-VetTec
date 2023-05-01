@@ -15,15 +15,15 @@ command line would be
 
 Step 2: To run the class, we must use the package and classname, so from inside bin
 specify the full class name
-        myproj (*) currently inside of here
-          >bin
+        myproj 
+          >bin (*) currently inside of here
             >com 
               >skillstorm
                 -Hello.class (**) This is the file I want to run
           >src
             >com 
               >skillstorm
-                -Hello.java 
+                -Hello.java
                 -Test.java
 command line would be from where our package structure starts
 >java com.skillstorm.Hello
