@@ -1,0 +1,30 @@
+Compiling and running classes on the command line when working with a package structure
+
+Step 1: Compile within the src/com/skillstorm/ directory where your .java file exists
+  specify the destination
+        myproj
+          >bin(**) want my .class files here
+          >src
+            >com 
+              >skillstorm(*) currently inside of here, I can compile using
+                -Hello.java 
+                -Test.java
+command line would be
+> javac -d ../../../bin Hello.java
+>
+
+Step 2: To run the class, we must use the package and classname, so from inside bin
+specify the full class name
+        myproj (*) currently inside of here
+          >bin
+            >com 
+              >skillstorm
+                -Hello.class (**) This is the file I want to run
+          >src
+            >com 
+              >skillstorm
+                -Hello.java 
+                -Test.java
+command line would be from where our package structure starts
+>java com.skillstorm.Hello
+>

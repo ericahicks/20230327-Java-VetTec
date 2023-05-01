@@ -32,6 +32,10 @@ public class DeclaringAndInitializing {
 		// would have worked with the parenthesis here
 //		if (b2 != (b1 = !b2)) { // false = !b2
 		System.out.println("true");
+		
+		int m = 1, n = m, o = n;
+		System.out.printf("m=%d, n=%d, o=%d", m, n, o);
+		
 	}
 
 }

@@ -41,6 +41,7 @@ public class ArrayListMethodsToKnow {
 		// Remove all instances (of everything specified)
 		ArrayList<String> letters = new ArrayList<>(Arrays.asList("a", "b", "a"));
 		ArrayList<String> removals = new ArrayList<>(Arrays.asList("a"));
+		letters.remove("b");
 		letters.removeAll(removals);
 		System.out.println(letters);
 		
