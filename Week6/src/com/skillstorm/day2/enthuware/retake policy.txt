@@ -1,0 +1,9 @@
+Retake Policy:
+- Oracle requires you wait 5 days or a week to schedule your retake
+
+SkillStorm's policy:
+- Will pay for one retake if needed and you can demonstrate improvement 
+- DO NOT HAVE TO take the exam Friday if you have not scored in the 60s yet
+   - You can expect to do slightly better on the actual exam
+   - DO try to take it in the next week or so to be ready for the OCA material (Oracle certified associate, Jun 2nd goal)
+   
