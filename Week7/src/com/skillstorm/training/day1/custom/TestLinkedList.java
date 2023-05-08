@@ -66,6 +66,21 @@ public class TestLinkedList {
 		System.out.println(ll);
 		System.out.println(ll.remove(1));
 		System.out.println(ll);
+		
+		System.out.println("=========================");
+		LinkedList<String> names = new LinkedList<>();
+		names.add("Tony");
+		names.add("Tenzin");
+		names.add("Daun");
+		names.add("Jaycie");
+		names.add("Senia");
+		names.add("Blake");
+		// remove randomly
+		for (int i = names.size(); i > 0; i--) {
+			// generate random number between 0 and size
+			int r = (int) (Math.random() * names.size());
+			System.out.println(names.remove(r));
+		}
 	}
 
 }
