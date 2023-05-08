@@ -1,5 +1,7 @@
 package com.skillstorm.training.day1.custom;
 
+import java.util.NoSuchElementException;
+
 public class TestLinkedList {
 	
 	public static void main(String[] args) {
@@ -81,6 +83,20 @@ public class TestLinkedList {
 			int r = (int) (Math.random() * names.size());
 			System.out.println(names.remove(r));
 		}
+		
+		// Testing indexOf
+		LinkedList<Character> nums = new LinkedList<>();
+		try {
+			int index = nums.indexOf('1');
+			System.out.println(index);
+		} catch (NoSuchElementException e) {
+			System.out.println(e.getMessage());
+		}
+		nums.add('1');
+		nums.add('2');
+		nums.add('3');
+		nums.add('4');
+		System.out.println(nums.indexOf('3'));
 	}
 
 }

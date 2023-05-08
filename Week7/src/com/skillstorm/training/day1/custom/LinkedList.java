@@ -1,5 +1,7 @@
 package com.skillstorm.training.day1.custom;
 
+import java.util.NoSuchElementException;
+
 public class LinkedList<E> {
 	
 	private Node<E> head;
@@ -101,6 +103,29 @@ public class LinkedList<E> {
 		}
 		size--;
 		return n.getValue();
+	}
+	
+	// Returns the index of the first occurrence
+	// If not found, returns -1
+	public int indexOf(E e) {
+		// if the list is empty throw an exception
+		if (size == 0) {
+			throw new NoSuchElementException("List is empty.");
+		}
+		// some code here
+		Node<E> n = head;
+		for (int i = 0; i < size; i++) {
+			// compare n.value and e
+			if (e == null && n.getValue() == null) {
+				return i;
+			} else if (e.equals(n.getValue())) {
+				return i;
+			} else {
+				n = n.getNext();
+			}
+		}
+		
+		return -1;
 	}
 	
 	// package private
