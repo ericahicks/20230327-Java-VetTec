@@ -81,14 +81,49 @@ public class LinkedListExamples {
 		doors.addAll(Arrays.asList(door1, door2));
 		System.out.println("Doors is " + doors);
 		// clone the list
-		LinkedList<Door> doors2 = (LinkedList<Door>) doors.clone();
+		LinkedList<Door> doors2 = (LinkedList<Door>) doors.clone(); // cast Object to LinkedList<Door>
 		System.out.println("Doors2 is " + doors2);
 		// shallow or deep copy?
 		doors.getFirst().open = false;
 		System.out.println("Doors is " + doors);
-		System.out.println("Doors2 is " + doors2);
+		System.out.println("Doors2 is " + doors2); // shallow copy (points to same Door objects)
+		System.out.println("==================================================\nCookies");
+		
+		
+		// Example 5: addAll 
+		LinkedList<String> cookies = new LinkedList<>();
+		cookies.add("chocolate chip");
+		cookies.add("peanut butter");
+		
+		LinkedList<String> cookies2 = new LinkedList<>();
+		cookies2.add("chocolate chip");
+		cookies2.add("peanut butter");
+		
+		// Will cookies and cookies2 be the same?
+		cookies.add(1, "sugar");
+		cookies.add(1, "pumpkin");
+		cookies.add(1, "lemon");
+		
+		cookies2.addAll(1, Arrays.asList("sugar", "pumpkin", "lemon"));
+		
+		System.out.println(cookies);
+		System.out.println(cookies2);
+		
+		
+		
+		
+		
+		
+		// Example 6: NoSuchElementException
+//		lst1.removeFirst();
 	}
 }
+
+
+
+
+
+
 
 class Door {
 	boolean open; // TODO fully encapsulate this later
