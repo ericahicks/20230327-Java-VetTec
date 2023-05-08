@@ -31,6 +31,41 @@ public class TestLinkedList {
 		// Check the head's next field
 		System.out.println(ll.getHead().getNext());
 		System.out.println(ll.getTail().getPrev());
+		
+		// Empty List
+		LinkedList<String> lst = new LinkedList<>();
+		try {
+			System.out.println(lst.get(0));
+		} catch (IndexOutOfBoundsException e) {
+//			e.printStackTrace();
+		}
+		
+		System.out.println(ll.get(0));
+		System.out.println(ll.get(1));
+//		System.out.println(ll.get(2));
+		
+		System.out.println(ll.remove(0));
+		System.out.println(ll);
+		System.out.println(ll.remove(0));
+		System.out.println(ll);
+		try {
+			System.out.println(ll.remove(0));
+		} catch (IndexOutOfBoundsException e) {
+		 System.out.println("Error was " + e.getMessage());
+		}
+		
+		// Remove last test
+		ll.add("a");
+		ll.add("b");
+		ll.add("c");
+		ll.add("d");
+		ll.add("e");
+		System.out.println(ll.remove(4));
+		System.out.println(ll);
+		System.out.println(ll.remove(1));
+		System.out.println(ll);
+		System.out.println(ll.remove(1));
+		System.out.println(ll);
 	}
 
 }
