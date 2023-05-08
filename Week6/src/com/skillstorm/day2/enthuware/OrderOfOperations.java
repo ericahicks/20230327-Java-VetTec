@@ -40,6 +40,31 @@ public class OrderOfOperations {
 //		// k = k + 2 + 2
 //		// k = 2 + 2 + 2
 //		// k = 5
+		
+		// What will happen when I do multiple ++ and --?
+		int q = 5;
+		int r = ++q + --q * q-- + (q += 2); // parenthesis first then post-fix before prefix
+		// Step 1: expand notation 
+		// int r = (q = q + 1) + --q * q-- + (q += 2);
+		// int r = (q = q + 1) + (q = q - 1) * q-- + (q += 2);
+		// int r = (q = q + 1) + (q = q - 1) * q-- + (q += 2);
+		// int r = (q = q + 1) + (q = q - 1) * q; q = q - 1; r += (q = q + 2); 
+		//                                                        ----------- // original parenthesis happen first
+		//                                        --------- post-fix before prefix
+		// 
+		// int r = (q = q + 1) + (q = q - 1) * 5; q = 7 - 1; r += (q = 7);
+		// int r = (q = q + 1) + (q = q - 1) * 5; q = 6; r += 7;
+		// int r = (q = 6 + 1) + (q = q - 1) * 5; q = 6; r += 7;
+		//         -----------
+		//          left-to-right for the next prefix? 
+		// int r = (q = 7) + (q = 7 - 1) * 5 + 7;
+		// int r = 7 + (q = 6) * 5 + 7;
+		// can't just substitute all at once!
+		// int r = (q = 6) + (q = 5) * 5; q = 6; r += (q = 7);
+		// is q = 6 or 4 or 6 or 7?
+		// is r = 26 + 7 = 33?
+		System.out.println(r);
+		
 	}
 
 }
