@@ -15,6 +15,11 @@ public class LinkedList<E> {
 		return size;
 	}
 	
+	// TODO Challenge: Implement 
+	public void add(int index, E e) {
+		
+	}
+	
 	public void add(E e) {
 		// check the size
 		if (size == 0) {
