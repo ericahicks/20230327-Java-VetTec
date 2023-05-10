@@ -4,6 +4,7 @@ import java.util.Set;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map.Entry;
 
 public class HashMapExamples {
 
@@ -76,12 +77,12 @@ public class HashMapExamples {
 		System.out.println("Get the value for key: 0310");
 		System.out.println("  value is " + moreCodes.get("0310")); // null
 		
-		// Example 9:
+		// Example 9: Get the keyset and use it to update all the values
 		Set<String> keys = moreCodes.keySet();
 		System.out.println(keys);
 		
 		// How can I use my set of keys to iterate through my map?
-		// iterator or a while loop or for loop or for each
+		// iterator or a while loop or for loop or for each?
 		Iterator<String> itr = keys.iterator();
 		while (itr.hasNext()) {
 			// make all the values capslock
@@ -94,6 +95,94 @@ public class HashMapExamples {
 		System.out.println("Capslock all the values:");
 		System.out.println(moreCodes);
 		
+//		int count = 0;
+//		while (count < keys.size()) {
+//			// concatenate "[" + value + "]"
+//			// get the key
+//			String key = keys.get(count); // DOESN'T EXIST FOR SET
+//			String oldValue = moreCodes.get(key); 
+//			String newValue = "[" + oldValue + "]"; // concatenation doesn't update the old value
+//			moreCodes.replace(key, newValue); 
+//			count++;
+//		}
+		
+//		for (String key : keys) {
+//			String oldValue = moreCodes.get(key); 
+//			String newValue = "[" + oldValue + "]"; // concatenation doesn't update the old value
+//			moreCodes.replace(key, newValue); // need to store it using replace or put
+//		}
+//		System.out.println("concatenate \"[\" + value + \"]\":");
+//		System.out.println(moreCodes);
+		
+		
+		// Note: The map currently contains:
+		// {null=NOT SPECIFIED, 2336=EOD, 0311=GRUNT, none=NOT SPECIFIED}
+		
+		// Note: The values are currently:
+		// Collection<String> values = moreCodes.values();
+		// [null, 2336, 0311, none]
+		System.out.println("\n\n\n\n\n\n\n===========================================");
+		System.out.println("                Quiz                       ");
+		System.out.println("===========================================");
+		System.out.println("What will the map contain if I use values to loop through and change the Strings?");
+		for (String value : values) {
+			value = value.concat("!"); // value is not connected to the hashmap 
+			// Can we use replace to update the actual value for each key?
+			// .replace()
+		}
+		System.out.println(moreCodes);
+		System.out.println("===========================================\n\n\n");
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		System.out.println("===========================================");
+		System.out.println("                Quiz                       ");
+		System.out.println("===========================================");
+		System.out.println("What will the map contain if I use keys to loop through and change the Strings?");
+		for (String key : moreCodes.keySet()) {
+			moreCodes.replace(key, moreCodes.get(key).concat("!"));
+		}
+		System.out.println(moreCodes);
+		System.out.println("===========================================");
+		
+		
+		
+		
+
 		// Challenge: use .entrySet() to loop through the map and put all the values to lowercase
+		
+		
+		
+		
+		for (Entry<String, String> entry : moreCodes.entrySet() ) {
+			// Get key
+			String key = entry.getKey();
+			// Get value
+			String value = entry.getValue();
+			// Set value to lowercase
+			moreCodes.replace(key, value.toLowerCase());
+		}
+		System.out.println("Using the entrySet to lowercase the values");
+		System.out.println(moreCodes);
+		
+		for (Entry<String, String> entry : moreCodes.entrySet() ) {
+			entry.setValue(String.format("[%-20s]", entry.getValue())); // Does String format put the whitespace on the left or the right?
+		}
+		System.out.println("Using the entrySet to lowercase the values");
+		System.out.println(moreCodes);
+		
+		
+		
+		
+
 	}
 }
