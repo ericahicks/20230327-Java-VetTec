@@ -6,7 +6,9 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
-public class HashMapExamples {
+public class HashMapExamples { // Under the hood this uses a hash table
+	                           // The key is hashed
+	                           // Then the key-value pair is stored in the table aka array
 
 	public static void main(String[] args) {
 		// TODO put a screenshot in the chat of map containing 3 entries

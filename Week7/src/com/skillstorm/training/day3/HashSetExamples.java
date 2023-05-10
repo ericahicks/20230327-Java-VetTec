@@ -4,7 +4,8 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-public class HashSetExamples {
+public class HashSetExamples { // HashSet uses a hashtable under the hood
+	                           // Hashes the value
 
 	public static void main(String[] args) {
 		/*
