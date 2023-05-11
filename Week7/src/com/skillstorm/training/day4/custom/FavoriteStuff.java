@@ -1,5 +1,7 @@
 package com.skillstorm.training.day4.custom;
 
+import java.util.Objects;
+
 public class FavoriteStuff implements Comparable<FavoriteStuff>{
 	
 	String name;
@@ -30,5 +32,40 @@ public class FavoriteStuff implements Comparable<FavoriteStuff>{
 		} else {
 			return 1; // positive because worse
 		}
+	}
+	
+	@Override
+	public int hashCode() {
+		int prime = 29; 
+		// include a numeric value of the fields that equals compares
+		int hash = 1;
+		hash = hash * prime + ranking;
+		hash = hash * prime + Objects.hashCode(name); // Objects.hashCode(object) is null safe so won't throw exception
+		hash = hash * prime + age;
+		return hash;
+	}
+	
+	@Override
+	public boolean equals(Object other) {
+		// equals and hashcode must look at the same fields
+		if (other == null) {
+			return false;
+		}
+		// check if same type
+		if (!(other instanceof FavoriteStuff))
+			return false;
+		// convert to that type
+		FavoriteStuff stuff = (FavoriteStuff) other;
+		// compare the name and rank and the age
+		if (this.ranking != stuff.ranking)
+			return false;
+		if (stuff.name == null && this.name != null)
+			return false;
+		if (!stuff.name.equals(this.name))
+			return false;
+		if (this.age != stuff.age)
+			return false;
+		// code gets here everything matched
+		return true; 
 	}
 }

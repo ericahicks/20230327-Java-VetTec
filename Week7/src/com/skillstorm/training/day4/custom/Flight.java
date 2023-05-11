@@ -1,5 +1,6 @@
 package com.skillstorm.training.day4.custom;
 
+import java.util.Objects;
 import java.util.PriorityQueue;
 
 public class Flight {
@@ -31,5 +32,27 @@ public class Flight {
 	public String toString() {
 		return passengers.toString();
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(passengers);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		Flight other = (Flight) obj;
+		return Objects.equals(passengers, other.passengers);
+	}
+	
+	
 
 }
