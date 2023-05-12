@@ -97,18 +97,23 @@ public class Array2DProblems {
 		return result;
 	}
 
-	public static String getParagraph(String[][] strs) {
+	// Concatenate all the strings in the 2D Array
+	public static String concatenate(String[][] strs) {
 		return null;
 	}
 
+	// Find the largest number in the 2D Array
 	public static int maxValue(int[][] nums) {
 		return 0;
 	}
 
+	// Find the smallest number in the 2D Array
 	public static int minValue(int[][] nums) {
 		return 0;
 	}
 
+	// Find the average of the numbers in a row
+	// Store it in a new array
 	public static double[] studentGrades(int[][] studentAssignmentGrades) {
 		return null;
 	}
