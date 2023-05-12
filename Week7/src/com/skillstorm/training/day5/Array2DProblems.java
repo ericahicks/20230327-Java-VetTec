@@ -89,7 +89,7 @@ public class Array2DProblems {
 		for (int i = 0; i < strs.length; i++) {
 			String row = ""; // reset the string we're using to be empty
 			for (int j = 0; j < strs[i].length; j++) {
-				row += strs[i][j] + " ";
+				row += strs[i][j] + " "; // why doesn't row += null + " "; throw an exception?
 			}
 			result[i] = row; // store the result of the inner loop
 		}
