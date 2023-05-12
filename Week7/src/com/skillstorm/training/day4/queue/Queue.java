@@ -1,4 +1,4 @@
-package com.skillstorm.training.day4;
+package com.skillstorm.training.day4.queue;
 
 import java.util.NoSuchElementException;
 import java.util.Objects;
