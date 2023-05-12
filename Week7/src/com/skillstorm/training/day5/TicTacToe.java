@@ -7,20 +7,23 @@ public class TicTacToe {
 	private static String[][] board = { { " ", " ", " " }, 
 							{ " ", " ", " " },
 							{ " ", " ", " " } };
+	
+	private static final String[] players = {"x", "o"};
 
 	public static void main(String[] args) {
 		playTicTacToe();
 	}
 
 	public static void playTicTacToe() {
-		System.out.println("Welcome to tic tac toe.");
-		printGameboard();
+		printWelcome();
+		// Set up a variable to hold the scanner and the current player
 		Scanner in = new Scanner(System.in);
-		String[] players = { "x", "o" };
 		String player = "";
-		boolean tieGame = false;
-		for (int round = 1; round <= 9; round++) {
-			player = players[round % 2];
+		// Play 9 rounds unless there is a win, then break the loop
+		int round = 0;
+		for (round = 1; round <= 9; round++) {
+			// Get the current player
+			player = players[round % 2]; 
 			
 			// Prompt for row and column
 			System.out.println("Player " + player + " choose a row: ");
@@ -38,10 +41,22 @@ public class TicTacToe {
 			if (diagonalWin() || horizontalWin() || verticalWin()) {
 				break;
 			}
-			tieGame = true;
 		}
-		System.out.println(tieGame ? "Tie game." : "Player " + player + " has won!");
+		printResult(round, player);
 		in.close();
+	}
+	
+	private static void printResult(int round, String player) {
+		if (round > 9) {
+			System.out.println("Tie game.");
+		} else {
+			System.out.println("Player " + player + " has won!");
+		}
+	}
+	
+	private static void printWelcome() {
+		System.out.println("Welcome to tic tac toe.");
+		printGameboard();
 	}
 
 	/*
