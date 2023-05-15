@@ -16,6 +16,17 @@ public class Athlete implements Comparable<Athlete> {
 		this.wins = wins;
 		this.losses = losses;
 	}
+	// This is a javadoc comment
+	// It starts with /** and lets me export just these comments for my user documentation
+	// To generate the documentation in spring tool suite, use Project>Generate Javadocs 
+	//    select which packages you want to generate user documentation for
+	//    select if you only want public fields or also protected or also package private or also private
+	//    select where you want the documentation to be saved (default is at the project root level)
+	//    select Finish
+	// To see the user documentation, you can go under the doc folder and right click the Athlete.html file
+	//    to select Open with Browser
+	// To update the doc just edit your /** */ comments and rerun the Project>Generate Javadocs command
+	// Reopen the Athlete.html file or select Refresh in your browser to see the updates.
 	/**
 	 * this is a useful method. It is brilliant!
 	 * this throws an null pointer if the athlete o is null
