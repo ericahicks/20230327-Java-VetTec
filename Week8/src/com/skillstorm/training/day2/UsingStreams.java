@@ -53,8 +53,8 @@ public class UsingStreams {
 		List<Pet> pets = Arrays.asList(new Pet("Boots the cat", 10), new Pet("Taco the Corn Snake", 5));
 		System.out.println(pets.stream().map(pet -> pet.cuteness).reduce(0, (x,y) -> Math.max(x, y)));
 		/*
-		System.out.println(people.stream().reduce(new Person("", Arrays.asList()), 
-		(p1,p2) -> { 
+		System.out.println(people.stream().reduce(new Person("", Arrays.asList()), // initially compare to "empty" person not just int of 0
+		(p1,p2) -> {                                                               // comparing two people, return the one with more pets
 		   if (p1.pet.sizes() > p2.pets.sizes())
 		       return p1;
 		   else
