@@ -52,6 +52,15 @@ public class UsingStreams {
 		// map to find the cutest pet
 		List<Pet> pets = Arrays.asList(new Pet("Boots the cat", 10), new Pet("Taco the Corn Snake", 5));
 		System.out.println(pets.stream().map(pet -> pet.cuteness).reduce(0, (x,y) -> Math.max(x, y)));
+		/*
+		System.out.println(people.stream().reduce(new Person("", Arrays.asList()), 
+		(p1,p2) -> { 
+		   if (p1.pet.sizes() > p2.pets.sizes())
+		       return p1;
+		   else
+		       return p2;
+		});
+		*/
 	}
 
 }
