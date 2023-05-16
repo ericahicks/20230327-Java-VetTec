@@ -6,7 +6,9 @@ public class UsingLambdas {
 	
 	// Example 1: Using lambdas as a return type
 	public static Incrementer<Integer> getIncrementer(int times) {
-		return (x) -> x + times;
+		return (x) -> x + times; // Why can I pass around functions like objects? 
+		                         //  Java 8 wanted to allow functional programming so
+		                         //  added lambdas that are "first class citizen" functions
 	}
 	
 	
@@ -28,7 +30,10 @@ public class UsingLambdas {
 	}
 
 }
-
+// Why do I need this definition of a functional interface?
+// - This is the type of the box that can hold the lambda
+// - Java is strongly typed, it needs to now what we are passing around (even though its just a bundle of code)
+@FunctionalInterface
 interface Incrementer<E extends Number> {
 	E increment(int x); 
 }
