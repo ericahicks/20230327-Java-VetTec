@@ -23,7 +23,7 @@ class Repeater implements Action {
 	}
 }
 
-// example :
+// Example:
 /*
 () -> {
 
