@@ -5,7 +5,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
+// Filter has to take a Predicate lambda
+//    Predicate - Is a function that takes in one value and returns a boolean
 public class FilterExamples {
 
 	public static void main(String[] args) {
