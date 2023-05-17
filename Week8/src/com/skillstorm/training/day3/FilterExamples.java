@@ -21,6 +21,7 @@ public class FilterExamples {
 		houses.add(new House("Blue", 1900));
 		houses.add(new House("Brown", 1900));
 		System.out.println(houses);
+		
 		// How can I use a method reference to filter on if the house is large?
 //		houses = houses.stream().filter(house -> house.squrFt > 2000).collect(Collectors.toList());
 		houses = houses.stream().filter(House::isLarge).collect(Collectors.toList());
