@@ -1,4 +1,4 @@
-package com.skillstorm.training.day4;
+package com.skillstorm.training.day4.fileio;
 
 import java.util.ArrayList;
 import java.util.List;
