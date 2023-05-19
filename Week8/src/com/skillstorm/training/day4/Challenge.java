@@ -140,7 +140,7 @@ class Person {
 				+ ", dob=" + dob + "]";
 	}
 	
-	public  String csvFormat() {
+	public String csvFormat() {
 		return firstName + "," + lastName + "," + dob;
 	}
 	

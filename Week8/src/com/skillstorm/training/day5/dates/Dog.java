@@ -27,7 +27,7 @@ public class Dog {
 					String dob = fields[1]; // How can I parse the date 03-11-2019
 					LocalDate date = null;
 					try {
-						date = LocalDate.parse(dob, DateTimeFormatter.ofPattern("MM-dd-yyyy"));
+						date = LocalDate.parse(dob);
 					} catch (Exception e) {
 						// just put null if date isn't parseable
 					}
