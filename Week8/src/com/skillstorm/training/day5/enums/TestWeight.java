@@ -16,6 +16,7 @@ public class TestWeight {
 		 * 
 		 * .valueOf(String) -- turns a Sting into the cooresponding enum
 		 */
+		
 	}
 
 }
