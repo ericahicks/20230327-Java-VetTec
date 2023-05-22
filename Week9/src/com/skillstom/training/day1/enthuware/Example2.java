@@ -5,7 +5,7 @@ public class Example2 extends Test {
 	public static void main(String[] args) {
 		System.out.println("main");
 		new Example2();
-		// Expected print statments are:
+		// Expected print statements are:
 		/*
 		 * static     //        parent static blocks are run before the child class's static blocks
 		 * q          // NOTE: static blocks are run before any static methods of the class are run
