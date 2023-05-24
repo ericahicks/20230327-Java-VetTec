@@ -18,8 +18,8 @@ public class ImmutableExample {
 //  5. prevent method overloading
 final class Card {
 	private final String suit; // should use enum 
-	private final int value; // note Ace, 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack, Queen, King
-	           //       1   2  3  4  5  6  7  8  9  10   11    12     13      14     15
+	private final int value; // note could use enum Ace, 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack, Queen, King
+	           //                                    1   2  3  4  5  6  7  8  9  10   11    12     13      14     15
 	
 	// probably shouldn't have a default constructur, 
 	// but just to show we can as long as it sets everything
