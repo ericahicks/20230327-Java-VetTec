@@ -1,4 +1,4 @@
-package com.skillstom.training.day2.multithreading;
+package com.skillstorm.training.day2.multithreading;
 
 public class Example2 {
 	

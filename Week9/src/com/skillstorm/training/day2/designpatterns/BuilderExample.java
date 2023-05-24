@@ -1,4 +1,4 @@
-package com.skillstom.training.day2.designpatterns;
+package com.skillstorm.training.day2.designpatterns;
 
 public class BuilderExample {
 

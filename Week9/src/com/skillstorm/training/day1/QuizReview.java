@@ -1,4 +1,4 @@
-package com.skillstom.training.day1;
+package com.skillstorm.training.day1;
 
 import java.util.Arrays;
 

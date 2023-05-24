@@ -1,4 +1,4 @@
-package com.skillstom.training.day2.enthuware;
+package com.skillstorm.training.day2.enthuware;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

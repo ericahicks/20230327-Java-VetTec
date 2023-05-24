@@ -1,4 +1,4 @@
-package com.skillstom.training.day1.enthuware;
+package com.skillstorm.training.day1.enthuware;
 
 public class TestClass {
 	/*
