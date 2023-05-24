@@ -36,6 +36,15 @@ public class MultithreadingExample {
 
 }
 
+/*
+ * Add thread safety in one of three ways
+ * 1. make the read and update methods synchronized, 
+ *   so no one can read a value while someone else is updating it -- degrades performance
+ * 1b. make the specific code statement(s) in the method that need to be thread-safe synchronized
+ * 2. make the property being read/updated volatile so the most recent value is always read
+ * 3. use an atomic data type for the property being read/updated
+ *     Example: AtomicInteger in the java.util.concurrent.atomic package 
+ */
 class Universe {
 
 	private int numSolarSystems; // to use lazy initialization:
@@ -44,6 +53,8 @@ class Universe {
 	// atomic access = read and write must complete before another read can
 	// happen
 	private static Object keyToTheUniverse = new Object(); // mutex acts like a lock
+	                                                       // mutually exclusive access
+	                                                       // only one thread can access at a time
 
 	private Universe() {
 	}
@@ -51,7 +62,7 @@ class Universe {
 	public static Universe getInstance() {
 		// only run new Universe once
 		if (instance == null) {
-			synchronized (keyToTheUniverse) {
+			synchronized (keyToTheUniverse) { // uses mutex to decide if the block can run
 			instance = new Universe();
 			}
 		}
