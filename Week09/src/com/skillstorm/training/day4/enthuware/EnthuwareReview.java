@@ -124,6 +124,9 @@ public class EnthuwareReview {
 		
 		Object d = 10;
 		System.out.println(d instanceof Integer);
+		
+		///////////////////////////////////////////////////////
+		// 
 
 		/////////////////////////////////////////////////////
 		// Problem 56 Java Data Types - Nested Inner classes

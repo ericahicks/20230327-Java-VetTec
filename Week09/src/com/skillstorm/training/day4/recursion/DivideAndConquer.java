@@ -75,19 +75,19 @@ public class DivideAndConquer {
 		return max;
 	}
 	
-	public static int findMax(int[] nums, int from, int to) {
+	public static int findMax(int[] nums, int start, int end) {
 		int max = Integer.MIN_VALUE;
-		for (int i = from; i < to; i++) {
+		for (int i = start; i < end; i++) {
 			max = Math.max(max, nums[i]);
 		}
 		return max;
 	}
 	
 	public static int[] create(int size) {
-		Random r = new Random();
+		Random generator = new Random();
 		int[] nums = new int[size];
 		for (int i = 0; i < size; i++) {
-			nums[i] = r.nextInt(); // any int from -2billion to 2billion
+			nums[i] = generator.nextInt(); // any int from -2billion to 2billion
 		}
 		return nums;
 	}
