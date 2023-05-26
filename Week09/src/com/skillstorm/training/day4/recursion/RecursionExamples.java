@@ -9,9 +9,9 @@ public class RecursionExamples {
 	public static void main(String[] args) {
 		hello(10);
 
-		System.out.println(fibinocci(4));
+		System.out.println(memoizedFibonacci(4));
 		Instant start = Instant.now();
-		int value = fibinocci(40);
+		long value = memoizedFibonacci(20);
 		Instant end = Instant.now();
 		Duration time = Duration.between(start, end);
 		System.out.println("value is " + value);
@@ -42,20 +42,22 @@ public class RecursionExamples {
 	//          8
 	//         13
 	//         21
-	public static HashMap<Integer, Integer> fibs = new HashMap<>();
+	public static HashMap<Integer, Long> fibs = new HashMap<>();
 	
-	public static int fibinocci(int n) {
-//		System.out.println("n = " + n) ;
-		if (n < 2)    // base case
-			return n; // if n is 0 return 0 and if n is 1 return `
-		int prev;
-		if (fibs.containsKey(n - 1))
-			prev = fibs.get(n - 1);
-		else {
-			prev = fibinocci(n-1) + fibinocci(n-2);
-			fibs.put(n - 1, prev);
+	public static long memoizedFibonacci(int n) {
+		// base case
+		if (n == 0 || n == 1)    
+			return n;
+		// check cached values
+		if (fibs.containsKey(n)) {
+			return fibs.get(n);
 		}
-		return fibinocci(n-1) + fibinocci(n-2);		// if n is 2 or more return the sum of the previous two values
+		// calculate new values
+		long fibN = memoizedFibonacci(n - 1) + memoizedFibonacci(n - 2);
+		
+		// store the value
+		fibs.put(n, fibN);
+		return fibN;
 	}
 	
 	// factorial ex: 5! = 5 * 4 * 3 * 2 * 1
@@ -77,4 +79,13 @@ public class RecursionExamples {
 		else
 			return n + sumN(n - 1);
 	}
+	
+	public static int getFib(int n) {
+		System.out.println("n = " + n) ;
+		if (n < 2)    // base case
+			return n; // if n is 0 return 0 and if n is 1 return `
+		return getFib(n-1) + getFib(n-2);		// if n is 2 or more return the sum of the previous two values
+	}
+
+
 }
