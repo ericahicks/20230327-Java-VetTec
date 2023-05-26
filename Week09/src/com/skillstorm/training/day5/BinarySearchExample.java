@@ -27,9 +27,9 @@ public class BinarySearchExample {
 			if (value == middleValue)
 				return middleIndex;
 			if (value < middleValue) {
-				
+				end = middleIndex - 1;
 			} else {
-				
+				start = middleIndex + 1;
 			}
 		}
 		return -1;
