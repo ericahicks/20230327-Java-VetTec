@@ -1,12 +1,21 @@
 package com.skillstorm.training.day4.recursion;
 
+import java.time.Duration;
+import java.time.Instant;
+import java.util.HashMap;
+
 public class RecursionExamples {
 	
 	public static void main(String[] args) {
 		hello(10);
 
-		System.out.println(getFib(4));
-		System.out.println(factorial(50));
+		System.out.println(fibinocci(4));
+		Instant start = Instant.now();
+		int value = fibinocci(40);
+		Instant end = Instant.now();
+		Duration time = Duration.between(start, end);
+		System.out.println("value is " + value);
+		System.out.println("time taken: " + time);
 		System.out.println(Long.MAX_VALUE);
 //		System.out.println(sumN(3));
 	}
@@ -32,12 +41,20 @@ public class RecursionExamples {
 	//          8
 	//         13
 	//         21
+	public static HashMap<Integer, Integer> fibs = new HashMap<>();
 	
-	public static int getFib(int n) {
-		System.out.println("n = " + n) ;
+	public static int fibinocci(int n) {
+//		System.out.println("n = " + n) ;
 		if (n < 2)    // base case
 			return n; // if n is 0 return 0 and if n is 1 return `
-		return getFib(n-1) + getFib(n-2);		// if n is 2 or more return the sum of the previous two values
+		int prev;
+		if (fibs.containsKey(n - 1))
+			prev = fibs.get(n - 1);
+		else {
+			prev = fibinocci(n-1) + fibinocci(n-2);
+			fibs.put(n - 1, prev);
+		}
+		return fibinocci(n-1) + fibinocci(n-2);		// if n is 2 or more return the sum of the previous two values
 	}
 	
 	// factorial ex: 5! = 5 * 4 * 3 * 2 * 1
