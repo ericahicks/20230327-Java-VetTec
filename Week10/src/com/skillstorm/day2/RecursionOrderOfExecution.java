@@ -19,6 +19,7 @@ public class RecursionOrderOfExecution {
 				new Student(9, true), new Student(7, false),
 				new Student(8, false), new Student(6, false),
 				new Student(10, true) };
+		System.out.println("\nHigh Score is " + highScore(students, 0));
 	}
 
 	public static void recursive(int x) {
@@ -94,9 +95,8 @@ public class RecursionOrderOfExecution {
 
 	// Challenge: Find the highest score of the Students (not counting the ones
 	// who cheated)
-	public static int highScore(Student[] students, int start) {
-		// Hint: return the highest score comparing the current student's with
-		// ______
+	public static int highScore(Student[] students, int i) {
+		// Hint: If the student cheated, there score should be a 0
 		return 0;
 	}
 }
