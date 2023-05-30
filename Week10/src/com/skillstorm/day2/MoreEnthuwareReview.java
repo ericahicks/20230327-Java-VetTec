@@ -13,8 +13,11 @@ public class MoreEnthuwareReview {
 	// - access modifiers = can be more permissive but not less permissive
 	// - other modifiers:
 	//    - synchronized parent method can be a synchronized or unsynchronized child method
-	//    - cannot change to static if not originally there
-
+	//    - cannot change to static if not originally there     ||  
+	// see example Parent and Child class at bottom of file    _||_
+	//                                                        \    /
+	//                                                         \  /
+	//                                                          \/
 
 	//////////////////////////////////////////////////////////////////////////////
 	// 29 variable scope
