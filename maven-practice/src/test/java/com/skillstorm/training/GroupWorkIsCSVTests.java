@@ -2,7 +2,7 @@ package com.skillstorm.training;
 
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
-import com.skillstorm.training.GroupWork;
+
 public class GroupWorkIsCSVTests {
 	
 	/*
