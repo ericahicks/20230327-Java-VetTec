@@ -22,8 +22,7 @@ public class MoreEnthuwareReview {
 	// \ /
 	// \/
 
-	//////////////////////////////////////////////////////////////////////////////
-	// 29 variable scope
+
 
 
 	public static void main(String[] args) {
