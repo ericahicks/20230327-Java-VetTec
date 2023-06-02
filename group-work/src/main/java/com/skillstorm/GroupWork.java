@@ -6,15 +6,18 @@ package com.skillstorm;
  */
 public class GroupWork {
 	/**
-	 * Finds the url path variable /user/{id} accounting for further
-	 * subpaths like {@literal https://www.skillstorm.store.com/user/12345/cart_id/5?checkout=false}
+	 * Finds the url path variable /user/{id} accounting for further subpaths
+	 * like
+	 * {@literal https://www.skillstorm.store.com/user/12345/cart_id/5?checkout=false}
+	 * 
 	 * @param url an absolute URL that contains the userid such as
 	 *            {@literal https://www.skillstorm.store.com/user/12345}
 	 * @return an int containing the users id number
 	 * 
 	 * @author Team Apples
 	 * 
-	 * @throws IllegalArgumentException if the url is null, empty, or not a valid url
+	 * @throws IllegalArgumentException if the url is null, empty, or not a
+	 *                                  valid url
 	 */
 	public static int getUserId(String url) {
 
@@ -33,16 +36,33 @@ public class GroupWork {
 		}
 	}
 
+	public static int getUserIdMethod2(String url) {
+
+		// https://www.skillstorm.store.com/user/12345/cart
+		String parts[] = url.split("/user/"); // split on /user/
+		// { "https://www.skillstorm.store.com", "12345/cart"}
+		// the half we are interested in is
+		if (parts.length < 2)
+			throw new IllegalArgumentException();
+		String endOfUrl = parts[1]; // "12345/cart/3/products/instock"
+
+		// make sure you are getting rid of anything after the userid number
+		// itself
+		String smallerParts[] = endOfUrl.split("/");
+		String userId = smallerParts[0];
+		return Integer.parseInt(userId);
+	}
+
 	/**
-	 * Extracts the value of a url's query parameter given a url.
-	 * Note: A url can contain a list of key-value pairs in the format
+	 * Extracts the value of a url's query parameter given a url. Note: A url
+	 * can contain a list of key-value pairs in the format
 	 * {@literal https://www.domain.com/page?key1=value1&key2=value2}
 	 * 
-	 * Assumes that there is only one {@literal ?} in the url String and
-	 * the key-value pairs are always separated by {@literal &}. A key might be
+	 * Assumes that there is only one {@literal ?} in the url String and the
+	 * key-value pairs are always separated by {@literal &}. A key might be
 	 * present but not have a value such as in:
-	 * {@literal https://www.domain.com/page?key1=&key2=value2}
-	 * in which case an empty String is returned.
+	 * {@literal https://www.domain.com/page?key1=&key2=value2} in which case an
+	 * empty String is returned.
 	 * 
 	 * @param url a url containing query parameters
 	 * @param key the name of the url's query parameter to grab the value from
@@ -50,10 +70,12 @@ public class GroupWork {
 	 * 
 	 * @author Team Oranges
 	 * 
-	 * @throws NullPointerException if the url or key are null
-	 * @throws IllegalArgumentException if the url is not a url, 
-	 * the key is empty, or the key handed in contains an illegal character in the set
-	 * of characters {@literal ";", "/", "?", ":", "@", "&", "=", "+", ",", and "$"}
+	 * @throws NullPointerException     if the url or key are null
+	 * @throws IllegalArgumentException if the url is not a url, the key is
+	 *                                  empty, or the key handed in contains an
+	 *                                  illegal character in the set of
+	 *                                  characters
+	 *                                  {@literal ";", "/", "?", ":", "@", "&", "=", "+", ",", and "$"}
 	 */
 	public static String getQueryParameterValue(String url, String key) {
 		String[] parts = url.split("\\?");

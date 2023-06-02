@@ -1,39 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GroupWork.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">group-work</a> &gt; <a href="index.source.html" class="el_package">com.skillstorm</a> &gt; <span class="el_source">GroupWork.java</span></div><h1>GroupWork.java</h1><pre class="source lang-java linenums">package com.skillstorm;
 
-<span class="nc" id="L3">public class GroupWork {</span>
-
+/**
+ * Contains utility methods for parsing URLs.
+ *
+ */
+<span class="nc" id="L7">public class GroupWork {</span>
+	/**
+	 * Finds the url path variable /user/{id} accounting for further subpaths
+	 * like
+	 * {@literal https://www.skillstorm.store.com/user/12345/cart_id/5?checkout=false}
+	 * 
+	 * @param url an absolute URL that contains the userid such as
+	 *            {@literal https://www.skillstorm.store.com/user/12345}
+	 * @return an int containing the users id number
+	 * 
+	 * @author Team Apples
+	 * 
+	 * @throws IllegalArgumentException if the url is null, empty, or not a
+	 *                                  valid url
+	 */
 	public static int getUserId(String url) {
 
-<span class="nc bnc" id="L7" title="All 2 branches missed.">		if (url.contains(&quot;/user/&quot;)) {</span>
-<span class="nc" id="L8">			int user = url.indexOf(&quot;/user/&quot;);</span>
+<span class="fc bfc" id="L24" title="All 2 branches covered.">		if (url.contains(&quot;/user/&quot;)) {</span>
+<span class="fc" id="L25">			int user = url.indexOf(&quot;/user/&quot;);</span>
 			int endOfUsername;
-<span class="nc bnc" id="L10" title="All 2 branches missed.">			if (url.substring(user + 6, url.length() - 1).contains(&quot;/&quot;)) {</span>
-<span class="nc" id="L11">				endOfUsername = url.indexOf(&quot;/&quot;, user + 6);</span>
-<span class="nc" id="L12">			} else {</span>
-<span class="nc" id="L13">				endOfUsername = url.length();</span>
+<span class="fc bfc" id="L27" title="All 2 branches covered.">			if (url.substring(user + 6, url.length() - 1).contains(&quot;/&quot;)) {</span>
+<span class="fc" id="L28">				endOfUsername = url.indexOf(&quot;/&quot;, user + 6);</span>
+<span class="fc" id="L29">			} else {</span>
+<span class="fc" id="L30">				endOfUsername = url.length();</span>
 			}
-<span class="nc" id="L15">			String userId = url.substring(user + 6, endOfUsername);</span>
-<span class="nc" id="L16">			return Integer.parseInt(userId);</span>
+<span class="fc" id="L32">			String userId = url.substring(user + 6, endOfUsername);</span>
+<span class="fc" id="L33">			return Integer.parseInt(userId);</span>
 		} else {
-<span class="nc" id="L18">			throw new IllegalArgumentException();</span>
+<span class="fc" id="L35">			throw new IllegalArgumentException();</span>
 		}
 	}
 
+	public static int getUserIdMethod2(String url) {
+
+		// https://www.skillstorm.store.com/user/12345/cart
+<span class="fc" id="L42">		String parts[] = url.split(&quot;/user/&quot;); // split on /user/</span>
+		// { &quot;https://www.skillstorm.store.com&quot;, &quot;12345/cart&quot;}
+		// the half we are interested in is
+<span class="fc bfc" id="L45" title="All 2 branches covered.">		if (parts.length &lt; 2)</span>
+<span class="fc" id="L46">			throw new IllegalArgumentException();</span>
+<span class="fc" id="L47">		String endOfUrl = parts[1]; // &quot;12345/cart/3/products/instock&quot;</span>
+
+		// make sure you are getting rid of anything after the userid number
+		// itself
+<span class="fc" id="L51">		String smallerParts[] = endOfUrl.split(&quot;/&quot;);</span>
+<span class="fc" id="L52">		String userId = smallerParts[0];</span>
+<span class="fc" id="L53">		return Integer.parseInt(userId);</span>
+	}
+
+	/**
+	 * Extracts the value of a url's query parameter given a url. Note: A url
+	 * can contain a list of key-value pairs in the format
+	 * {@literal https://www.domain.com/page?key1=value1&amp;key2=value2}
+	 * 
+	 * Assumes that there is only one {@literal ?} in the url String and the
+	 * key-value pairs are always separated by {@literal &amp;}. A key might be
+	 * present but not have a value such as in:
+	 * {@literal https://www.domain.com/page?key1=&amp;key2=value2} in which case an
+	 * empty String is returned.
+	 * 
+	 * @param url a url containing query parameters
+	 * @param key the name of the url's query parameter to grab the value from
+	 * @return String containing the value or null if the key is not present.
+	 * 
+	 * @author Team Oranges
+	 * 
+	 * @throws NullPointerException     if the url or key are null
+	 * @throws IllegalArgumentException if the url is not a url, the key is
+	 *                                  empty, or the key handed in contains an
+	 *                                  illegal character in the set of
+	 *                                  characters
+	 *                                  {@literal &quot;;&quot;, &quot;/&quot;, &quot;?&quot;, &quot;:&quot;, &quot;@&quot;, &quot;&amp;&quot;, &quot;=&quot;, &quot;+&quot;, &quot;,&quot;, and &quot;$&quot;}
+	 */
 	public static String getQueryParameterValue(String url, String key) {
-<span class="fc" id="L23">		String[] parts = url.split(&quot;\\?&quot;);</span>
-<span class="pc bpc" id="L24" title="1 of 2 branches missed.">		if (parts.length &lt; 2) {</span>
-<span class="nc" id="L25">			return null; // No query parameters</span>
+<span class="fc" id="L81">		String[] parts = url.split(&quot;\\?&quot;);</span>
+<span class="pc bpc" id="L82" title="1 of 2 branches missed.">		if (parts.length &lt; 2) {</span>
+<span class="nc" id="L83">			return null; // No query parameters</span>
 		}
 
-<span class="fc" id="L28">		String query = parts[1];</span>
-<span class="fc" id="L29">		String[] params = query.split(&quot;&amp;&quot;);</span>
-<span class="pc bpc" id="L30" title="1 of 2 branches missed.">		for (String param : params) {</span>
-<span class="fc" id="L31">			String[] keyValue = param.split(&quot;=&quot;);</span>
-<span class="pc bpc" id="L32" title="2 of 4 branches missed.">			if (keyValue.length == 2 &amp;&amp; keyValue[0].equals(key)) {</span>
-<span class="fc" id="L33">				return keyValue[1];</span>
+<span class="fc" id="L86">		String query = parts[1];</span>
+<span class="fc" id="L87">		String[] params = query.split(&quot;&amp;&quot;);</span>
+<span class="pc bpc" id="L88" title="1 of 2 branches missed.">		for (String param : params) {</span>
+<span class="fc" id="L89">			String[] keyValue = param.split(&quot;=&quot;);</span>
+<span class="pc bpc" id="L90" title="2 of 4 branches missed.">			if (keyValue.length == 2 &amp;&amp; keyValue[0].equals(key)) {</span>
+<span class="fc" id="L91">				return keyValue[1];</span>
 			}
 		}
-<span class="nc" id="L36">		return null; // No user_id parameter found</span>
+<span class="nc" id="L94">		return null; // No user_id parameter found</span>
 	}
 
 }
