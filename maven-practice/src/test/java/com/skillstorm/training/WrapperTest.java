@@ -6,7 +6,7 @@ import static org.junit.Assert.assertThrows;
 import org.junit.jupiter.api.*;
 import com.skillstorm.training.Problem18;
 
-public class WrapperTests {
+public class WrapperTest {
 
 	@Disabled
 	@Test

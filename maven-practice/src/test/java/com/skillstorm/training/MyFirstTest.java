@@ -10,8 +10,6 @@ public class MyFirstTest {
 		fail("This causes the test to fail.");
 	}
 	
-	
-	
 	@Test
 	void positiveMathPowTest() {
 		assertTrue(Math.pow(3, 2) == 6);

@@ -3,7 +3,7 @@ package com.skillstorm.training;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class GroupWorkIsCSVTests {
+public class GroupWorkIsCSVTest {
 	
 	/*
 	 * Test I would write for the isCSV method:
