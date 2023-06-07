@@ -99,7 +99,7 @@ AVG
 SELECT title, rental_rate
 FROM sakila.film
 WHERE rental_rate < 4.50
-ORDER BY rental_rate, title;
+ORDER BY rental_rate desc, title DESC;
 -- LIMIT 50 OFFSET 150;
 
 SELECT 
@@ -144,4 +144,4 @@ WHERE first_name LIKE '%SS%'; -- contains a double s
 
 SELECT first_name, last_name
 FROM sakila.customer
-WHERE first_name LIKE 'A__'; -- 
+WHERE first_name LIKE 'A_'; -- starts with A followed by one letter (so only two letter names match like Al)

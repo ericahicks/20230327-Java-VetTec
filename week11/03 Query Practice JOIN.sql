@@ -37,16 +37,14 @@ ORDER BY store.store_id ASC, first_name ASC;
 
 */
 SELECT customer.first_name, rental.rental_date
-FROM customer JOIN rental ON customer.customer_id = rental.customer_id
+FROM customer JOIN rental ON rental.customer_id = customer.customer_id
 ORDER BY first_name;
 
 /*
 4.	Get the staff member's first name and the number of customers they have assisted.
 
 */
-SELECT staff.first_name, staff.last_name, COUNT(*)
-FROM staff JOIN rental USING (staff_id)
-GROUP BY staff.staff_id;
+
 
 
 /*

@@ -33,4 +33,4 @@ FROM film
     category
    USING (category_id)
 GROUP BY category_id
-ORDER BY Max desc;
+ORDER BY Min asc;
