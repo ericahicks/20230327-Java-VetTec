@@ -45,12 +45,18 @@ ORDER BY first_name;
 
 */
 
+     
 
 
 /*
 5.	Get the customer's first name and the total amount they have paid in payments.
 */
-
+select customer.first_name, customer.last_name, sum(payment.amount) 'Total Amount Paid' 
+from payment
+join customer
+on payment.customer_id = customer.customer_id
+group by customer.first_name, customer.last_name
+order by sum(payment.amount) desc, customer.last_name;
 
 /*
 6.	Retrieve the customer's first name, last name, and the film title they rented along with the rental date.
