@@ -18,9 +18,12 @@ SELECT * FROM student;
 
 -- Update a student entry
 UPDATE student
-SET first_name = 'Jane'
-WHERE id = 2;
+SET first_name = 'John'
+WHERE id = 1;
 
+select * 
+FROM student
+WHERE id IN (SELECT id FROM student WHERE first_name LIKE "J%");
 
 -- Delete a student
 DELETE FROM student
