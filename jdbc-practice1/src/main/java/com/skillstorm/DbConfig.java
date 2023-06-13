@@ -4,12 +4,43 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
+
+import java.util.Properties;
 
 /*
  * This class contains the code needed for querying the database
  */
-public class DbUtil {
+public class DbConfig {
+	private String url;
+	private String user;
+	private String password;
+	
+	private DbConfig instance;
+	
+	private DbConfig() throws IOException {
+		Properties props = getProperties();
+		this.url = props.getProperty("db.url");
+		this.user = props.getProperty("db.user");
+		this.password = props.getProperty("db.password");
+	}
+	
+	// Read from properties file
+	private static Properties getProperties() throws IOException {
+		Properties props = new Properties();
+		try (InputStream input = DbConfig.class.getClassLoader().getResourceAsStream("db.properites")) {
+			props.load(input);
+		}
+		return props;
+	}
+	
+	public DbConfig getInstance() throws IOException {
+		if (instance == null)
+			instance = new DbConfig();
+		return instance;
+	}
 	
 	/*
 	 * JDBC = Java Database Connectivity
@@ -26,6 +57,20 @@ public class DbUtil {
 	 * 4. Execute the sql statement
 	 * 5. Read the results
 	 */
+	
+	public String getUrl() {
+		return url;
+	}
+
+	public String getUser() {
+		return user;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+
 	
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		// STEP 1
@@ -63,5 +108,4 @@ public class DbUtil {
 		}
 	}
 	
-
 }
