@@ -37,7 +37,7 @@ public class BookMySqlDao implements BookDao, AutoCloseable {
 		List<Book> books = new ArrayList<>();
 		try (Statement stmt = conn.createStatement();
 				ResultSet results = stmt.executeQuery("SELECT * FROM books");) {
-			books = read(results);
+			books = readAll(results);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -52,7 +52,7 @@ public class BookMySqlDao implements BookDao, AutoCloseable {
 		ResultSet rs = null;
 		try {
 			if (rs.next()) { // returns false if the result set is empty
-				/// make a Book object and rutrn it
+				/// make a Book object and return it
 			} else {
 				return null;
 			}
@@ -91,7 +91,7 @@ public class BookMySqlDao implements BookDao, AutoCloseable {
 			// Now you can run the query once you've replaced the question marks
 			ResultSet results = stmt.executeQuery();
 			// STEP 5
-			books = read(results);
+			books = readAll(results);
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -100,7 +100,7 @@ public class BookMySqlDao implements BookDao, AutoCloseable {
 		return books;
 	}
 
-	private List<Book> read(ResultSet rs) throws SQLException {
+	private List<Book> readAll(ResultSet rs) throws SQLException {
 		List<Book> books = new ArrayList<>();
 		while (rs.next()) {
 			String genre = rs.getString("genre");
