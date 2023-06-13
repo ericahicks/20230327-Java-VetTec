@@ -18,7 +18,7 @@ public class DbConfig {
 	private String user;
 	private String password;
 	
-	private DbConfig instance;
+	private static DbConfig instance;
 	
 	private DbConfig() throws IOException {
 		Properties props = getProperties();
@@ -36,7 +36,7 @@ public class DbConfig {
 		return props;
 	}
 	
-	public DbConfig getInstance() throws IOException {
+	public static DbConfig getInstance() throws IOException {
 		if (instance == null)
 			instance = new DbConfig();
 		return instance;

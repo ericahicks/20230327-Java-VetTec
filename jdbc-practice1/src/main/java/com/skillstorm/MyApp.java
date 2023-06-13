@@ -1,5 +1,8 @@
 package com.skillstorm;
 import java.util.Scanner;
+
+import com.skillstorm.daos.BookDao;
+import com.skillstorm.daos.BookMySqlDao;
 public class MyApp {
 
 	public static void main(String[] args) {
@@ -11,6 +14,8 @@ public class MyApp {
 				+ "Comedy");
 		System.out.println("What type of book are you looking for? ");
 		String genre = in.nextLine();
+		BookDao dao = new BookMySqlDao();
+		dao.findAll();
 		System.out.println("Here is the list of books in the " + genre + " genre:");
 		in.close();
 
