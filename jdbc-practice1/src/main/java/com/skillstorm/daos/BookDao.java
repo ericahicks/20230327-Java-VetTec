@@ -30,4 +30,8 @@ public interface BookDao extends AutoCloseable {
 	boolean delete(int id);
 
 	List<Book> findByGenre(String genre);
+
+	List<Book> findByTitle(String title);
+
+	List<Book> findByAuthorName(String firstName, String lastName);
 }

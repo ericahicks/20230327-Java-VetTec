@@ -48,6 +48,29 @@ public class BookMySqlDao implements BookDao, AutoCloseable {
 
 	@Override
 	public Book findByIsbn(String isbn) {
+		// NOTE: use
+		ResultSet rs = null;
+		try {
+			if (rs.next()) { // returns false if the result set is empty
+				/// make a Book object and rutrn it
+			} else {
+				return null;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+		return null;
+	}
+	
+	@Override
+	public List<Book> findByTitle(String title) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public List<Book> findByAuthorName(String firstName, String lastName) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -58,7 +81,7 @@ public class BookMySqlDao implements BookDao, AutoCloseable {
 		try {
 			PreparedStatement stmt = conn
 					.prepareStatement("SELECT * FROM books WHERE genre = ?");
-			// BAD DO NOT USE statement and String concatenation instead use
+//			 BAD DO NOT USE statement and String concatenation instead use
 			// PreparedStatement
 //				ResultSet results = stmt.executeQuery("SELECT * FROM books WHERE genre LIKE \"%" + genre + "%\";")){
 

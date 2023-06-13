@@ -30,7 +30,7 @@ public class DbConfig {
 	// Read from properties file
 	private static Properties getProperties() throws IOException {
 		Properties props = new Properties();
-		try (InputStream input = DbConfig.class.getClassLoader().getResourceAsStream("db.properites")) {
+		try (InputStream input = DbConfig.class.getClassLoader().getResourceAsStream("db.properties")) {
 			props.load(input);
 		}
 		return props;

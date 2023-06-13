@@ -41,5 +41,23 @@ public class BookPostgresDao implements BookDao, AutoCloseable {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public List<Book> findByGenre(String genre) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Book> findByTitle(String title) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Book> findByAuthorName(String firstName, String lastName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }
