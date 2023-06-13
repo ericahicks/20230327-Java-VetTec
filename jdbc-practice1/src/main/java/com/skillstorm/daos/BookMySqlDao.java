@@ -55,13 +55,16 @@ public class BookMySqlDao implements BookDao, AutoCloseable {
 	@Override
 	public List<Book> findByGenre(String genre) {
 		List<Book> books = null;
-		try (PreparedStatement stmt = conn.prepareStatement("SELECT * FROM books WHERE genre = ?"))  {
-				// BAD DO NOT USE statement and String concatenation instead use PreparedStatement
+		try {
+			PreparedStatement stmt = conn
+					.prepareStatement("SELECT * FROM books WHERE genre = ?");
+			// BAD DO NOT USE statement and String concatenation instead use
+			// PreparedStatement
 //				ResultSet results = stmt.executeQuery("SELECT * FROM books WHERE genre LIKE \"%" + genre + "%\";")){
 
 			// Hand the user input to the prepared statement
 			stmt.setString(1, genre); // NOT zero indexed
-			
+
 			// Now you can run the query once you've replaced the question marks
 			ResultSet results = stmt.executeQuery();
 			// STEP 5
@@ -73,13 +76,13 @@ public class BookMySqlDao implements BookDao, AutoCloseable {
 		}
 		return books;
 	}
-	
+
 	private List<Book> read(ResultSet rs) throws SQLException {
 		List<Book> books = new ArrayList<>();
 		while (rs.next()) {
 			String genre = rs.getString("genre");
 			String title = rs.getString("title");
-			String authorFirstName = rs.getString("author_first_name"); 
+			String authorFirstName = rs.getString("author_first_name");
 			String authorLastName = rs.getString("author_last_name");
 			String isbn = rs.getString("isbn");
 			int releaseYear = rs.getInt("year");
