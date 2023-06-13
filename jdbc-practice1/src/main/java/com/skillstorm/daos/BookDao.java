@@ -28,4 +28,6 @@ public interface BookDao extends AutoCloseable {
 	
 	// delete(int id) or delete(T entity) returns int (number of rows deleted)
 	boolean delete(int id);
+
+	List<Book> findByGenre(String genre);
 }
