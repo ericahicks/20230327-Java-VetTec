@@ -12,7 +12,7 @@ import com.skillstorm.models.Book;
  * The Data Access Object is a class where we put all the logic for interacting with the database
  * Have a separate DAO for each table/entity
  */
-public interface BookDao {
+public interface BookDao extends AutoCloseable {
 	
 	// findAll() returns List<Book>
 	List<Book> findAll();

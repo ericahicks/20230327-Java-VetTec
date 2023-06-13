@@ -8,15 +8,27 @@ import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 
 import com.skillstorm.DbConfig;
 import com.skillstorm.models.Book;
 
-public class BookMySqlDao implements BookDao {
+public class BookMySqlDao implements BookDao, AutoCloseable {
 
 	// I need a connection to run the queries I want to run
+	private Connection conn;
 
+	public BookMySqlDao() throws IOException, SQLException {
+		conn = getConnection();
+	}
+	
+	private Connection getConnection() throws IOException, SQLException {
+		if (conn != null)
+			return conn;
+		// else
+		DbConfig config = DbConfig.getInstance();
+		return DriverManager.getConnection(config.getUrl(), config.getUser(), config.getPassword());
+	}
+	
 	@Override
 	public List<Book> findAll() {
 		DbConfig config;
@@ -34,6 +46,8 @@ public class BookMySqlDao implements BookDao {
 					String title = rs.getString("title");
 					String authorFirstName = rs.getString("author_first_name"); // string is the column name not the Book class's name
 					String authorLastName = rs.getString("author_last_name");
+					String isbn = rs.getString("isbn");
+					String genre = rs.getString("genre");
 					int releaseYear = rs.getInt("year");
 					Book book = new Book(null,authorFirstName, authorLastName, title, null, releaseYear);
 					books.add(book);
@@ -72,6 +86,12 @@ public class BookMySqlDao implements BookDao {
 	public boolean delete(int id) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public void close() throws Exception {
+		if (conn != null)
+			conn.close();
 	}
 
 }

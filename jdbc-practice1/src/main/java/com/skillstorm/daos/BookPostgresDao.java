@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.skillstorm.models.Book;
 
-public class BookPostgresDao implements BookDao {
+public class BookPostgresDao implements BookDao, AutoCloseable {
 
 	@Override
 	public List<Book> findAll() {
@@ -34,6 +34,12 @@ public class BookPostgresDao implements BookDao {
 	public boolean delete(int id) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public void close() throws Exception {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

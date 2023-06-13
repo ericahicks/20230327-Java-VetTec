@@ -42,6 +42,23 @@ public class DbConfig {
 		return instance;
 	}
 	
+
+	
+	public String getUrl() {
+		return url;
+	}
+
+	public String getUser() {
+		return user;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+	// FOR DEMO PURPOSES ONLY -- here are all 5 steps of working with a database in one method
+//////////////////////////////////////////////////////////////////////////////////////////////////////
 	/*
 	 * JDBC = Java Database Connectivity
 	 * - JDBC is a built-in API from the JRE
@@ -57,21 +74,6 @@ public class DbConfig {
 	 * 4. Execute the sql statement
 	 * 5. Read the results
 	 */
-	
-	public String getUrl() {
-		return url;
-	}
-
-	public String getUser() {
-		return user;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-
-	
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		// STEP 1
 		Class.forName("com.mysql.cj.jdbc.Driver");
