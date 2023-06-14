@@ -20,6 +20,10 @@ public class DbConfig {
 	
 	private static DbConfig instance;
 	
+	public Connection getConnection() throws SQLException {
+		return DriverManager.getConnection(url, user, password);
+	}
+	
 	private DbConfig() throws IOException {
 		Properties props = getProperties();
 		this.url = props.getProperty("db.url");
@@ -42,19 +46,6 @@ public class DbConfig {
 		return instance;
 	}
 	
-
-	
-	public String getUrl() {
-		return url;
-	}
-
-	public String getUser() {
-		return user;
-	}
-
-	public String getPassword() {
-		return password;
-	}
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 	// FOR DEMO PURPOSES ONLY -- here are all 5 steps of working with a database in one method

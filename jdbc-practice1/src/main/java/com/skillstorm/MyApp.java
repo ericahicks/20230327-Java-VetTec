@@ -21,13 +21,14 @@ public class MyApp {
 		System.out.println("Romance\r\n" + "Fiction\r\n" + "Comedy");
 		System.out.println("What type of book are you looking for? ");
 		String genre = in.nextLine();
-		
-		try (BookDao dao = new BookMySqlDao()) {
-			
-			List<Book> books = dao.findByGenre(genre);
-			System.out.println("Here is the list of books in the " + genre + " genre:");
-			System.out.println(books);
-		}
+
+		BookDao dao = new BookMySqlDao();
+
+		List<Book> books = dao.findByGenre(genre);
+		System.out.println(
+				"Here is the list of books in the " + genre + " genre:");
+		System.out.println(books);
+
 		in.close();
 
 	}

@@ -2,7 +2,6 @@ package com.skillstorm.daos;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.sql.SQLException;
@@ -13,30 +12,21 @@ import java.util.List;
 import com.skillstorm.DbConfig;
 import com.skillstorm.models.Book;
 
-public class BookMySqlDao implements BookDao, AutoCloseable {
-
-	// I need a connection to run the queries I want to run
-	private Connection conn;
+public class BookMySqlDao implements BookDao {
+	
+	DbConfig config;
 
 	public BookMySqlDao() throws IOException, SQLException {
-		conn = getConnection();
-	}
-
-	private Connection getConnection() throws IOException, SQLException {
-		if (conn != null)
-			return conn;
-		// else
-		DbConfig config = DbConfig.getInstance();
-		return DriverManager.getConnection(config.getUrl(), config.getUser(),
-				config.getPassword());
+		config = DbConfig.getInstance();
 	}
 
 	@Override
 	public List<Book> findAll() {
 
 		List<Book> books = new ArrayList<>();
-		try (Statement stmt = conn.createStatement();
-				ResultSet results = stmt.executeQuery("SELECT * FROM books");) {
+		try (Connection conn = config.getConnection()) {
+			Statement stmt = conn.createStatement();
+			ResultSet results = stmt.executeQuery("SELECT * FROM books");
 			books = readAll(results);
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -48,19 +38,16 @@ public class BookMySqlDao implements BookDao, AutoCloseable {
 
 	@Override
 	public Book findByIsbn(String isbn) {
-		// NOTE: use
-		ResultSet rs = null;
-		try {
-			if (rs.next()) { // returns false if the result set is empty
-				/// make a Book object and return it
-			} else {
-				return null;
-			}
+		Book book = null;
+		try (Connection conn = config.getConnection()) {
+			PreparedStatement stmt = conn.prepareStatement("SELECT * FROM books WHERE isbn = ?");
+			stmt.setString(1, isbn);
+			ResultSet results = stmt.executeQuery();
+			book = read(results);
 		} catch (SQLException e) {
 			e.printStackTrace();
-			return null;
 		}
-		return null;
+		return book;
 	}
 	
 	@Override
@@ -75,29 +62,43 @@ public class BookMySqlDao implements BookDao, AutoCloseable {
 		return null;
 	}
 
+	
 	@Override
 	public List<Book> findByGenre(String genre) {
 		List<Book> books = null;
-		try {
+		try (Connection conn = config.getConnection()){
 			PreparedStatement stmt = conn
 					.prepareStatement("SELECT * FROM books WHERE genre = ?");
-//			 BAD DO NOT USE statement and String concatenation instead use
-			// PreparedStatement
-//				ResultSet results = stmt.executeQuery("SELECT * FROM books WHERE genre LIKE \"%" + genre + "%\";")){
+// BAD DO NOT USE statement and String concatenation instead use PreparedStatement
+//			ResultSet results = stmt.executeQuery("SELECT * FROM books WHERE genre LIKE \"%" + genre + "%\";")){
 
 			// Hand the user input to the prepared statement
 			stmt.setString(1, genre); // NOT zero indexed
 
 			// Now you can run the query once you've replaced the question marks
 			ResultSet results = stmt.executeQuery();
-			// STEP 5
 			books = readAll(results);
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return books;
+	}
+	
+	private Book read(ResultSet rs) throws SQLException {
+		Book book = null;
+		if (rs.next()) {
+			String genre = rs.getString("genre");
+			String title = rs.getString("title");
+			String authorFirstName = rs.getString("author_first_name");
+			String authorLastName = rs.getString("author_last_name");
+			String isbn = rs.getString("isbn");
+			int releaseYear = rs.getInt("year");
+			book = new Book(isbn, authorFirstName, authorLastName, title,
+					genre, releaseYear);
+//			System.out.println(title + " (" + releaseYear + ")");
+		}
+		return book; // null if none found
 	}
 
 	private List<Book> readAll(ResultSet rs) throws SQLException {
@@ -133,12 +134,6 @@ public class BookMySqlDao implements BookDao, AutoCloseable {
 	public boolean delete(int id) {
 		// TODO Auto-generated method stub
 		return false;
-	}
-
-	@Override
-	public void close() throws Exception {
-		if (conn != null)
-			conn.close();
 	}
 
 }
