@@ -22,12 +22,26 @@ public class Car {
 	private String model;
 	
 	private int year;
+	
+	public Car() { }
 
-	public Car(long id, String vin, String make, String model, int year) {
+	public void setId(long id) {
 		this.id = id;
+	}
+
+	public void setVin(String vin) {
 		this.vin = vin;
+	}
+
+	public void setMake(String make) {
 		this.make = make;
+	}
+
+	public void setModel(String model) {
 		this.model = model;
+	}
+
+	public void setYear(int year) {
 		this.year = year;
 	}
 

@@ -49,7 +49,7 @@ public class CarServiceImplementation implements CarService {
 
 	@Override
 	public Car save(Car car) {
-		return repo.save(null);
+		return repo.save(car);
 	}
 
 	@Override

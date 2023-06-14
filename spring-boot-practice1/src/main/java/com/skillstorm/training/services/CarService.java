@@ -10,9 +10,7 @@ public interface CarService {
 	Iterable<Car> findByMake(String make);
 	Iterable<Car> findByModel(String model);
 	Iterable<Car> findByYear(int year);
-	
 	Car save(Car car);
-	
 	void delete(Car car);
  
 }
