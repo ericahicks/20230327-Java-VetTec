@@ -20,7 +20,7 @@ public class Part {
 	// A Part has a corresponding Computer
 	@ManyToOne
 	@JoinColumn(name = "computer_id")
-//	@JsonIdentityReference(alwaysAsId = true)
+	@JsonIdentityReference(alwaysAsId = true)
 	private Computer computer;
 
 	public int getId() {
