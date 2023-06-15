@@ -39,6 +39,11 @@ public class CarController {
 		return service.findAll(); 
 	}
 	
+	@GetMapping("/search")
+	public Iterable<Car> findBySearchCriteria() {
+		return null;
+	}
+	
 	@GetMapping("/{id}") // this is going to be the car_id column from the schema, here the names just need to match 
 	public Car findById(@PathVariable long id) {
 		return service.findById(id); // 

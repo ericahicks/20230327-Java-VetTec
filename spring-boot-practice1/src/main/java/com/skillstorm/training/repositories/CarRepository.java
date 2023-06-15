@@ -18,5 +18,7 @@ public interface CarRepository extends PagingAndSortingRepository<Car, Long> {
 	
 	Iterable<Car> findByYear(int year);
 	
+	Iterable<Car> findByYearAndModel(int year, String model);
+	
 	Car findByVin(String vin);
 }
