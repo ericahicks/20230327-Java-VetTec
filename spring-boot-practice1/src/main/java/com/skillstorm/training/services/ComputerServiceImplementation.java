@@ -1,5 +1,7 @@
 package com.skillstorm.training.services;
 
+import javax.transaction.Transactional;
+
 //import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,7 @@ public class ComputerServiceImplementation implements ComputerService {
 	}
 
 	@Override
+	@Transactional // useful if the below method runs multiple queries that must all succeed or all rollback
 	public Computer findById(int id) {
 		return repo.findById(id).orElse(null);
 	}

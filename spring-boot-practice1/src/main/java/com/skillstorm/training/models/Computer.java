@@ -8,17 +8,27 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+// TODO
+// If you want to add validation like NotNull that gets checked when an instance is crated
+// add the dependency to the POM
+// 
+//<dependency>
+//<groupId>org.springframework.boot</groupId>
+//<artifactId>spring-boot-starter-validation</artifactId>
+//</dependency>
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Computer {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "computer_id")
 	private int id;
+	
+//	@NotNull // TODO add validation
 	private String name;
 	// computers have many parts
 	@OneToMany(mappedBy = "computer")

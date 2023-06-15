@@ -15,12 +15,13 @@ public class Part {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
 	private String name;
 	
 	// A Part has a corresponding Computer
 	@ManyToOne
 	@JoinColumn(name = "computer_id")
-	@JsonIdentityReference(alwaysAsId = true)
+//	@JsonIdentityReference(alwaysAsId = true)
 	private Computer computer;
 
 	public int getId() {
