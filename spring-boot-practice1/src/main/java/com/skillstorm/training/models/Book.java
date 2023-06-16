@@ -1,21 +1,44 @@
 package com.skillstorm.training.models;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Entity
 @Table(name = "books")
 public class Book {
+	@Transient
+	Logger logger = LoggerFactory.getLogger(getClass());
+	
 	// Must exactly match my table
 	@Id
 	private String isbn;
+	
+	@NotNull
+	@NotBlank
 	private String authorFirstName;
+	@NotNull
+	@NotBlank
 	private String authorLastName;
+	@NotNull
+	@NotBlank
 	private String title;
+	
 	private String genre;
+	
+	// TODO don't hardcode this
+	@Max(value = 2023, message = "Year must be in the past or present not future.") 
 	private int year;
 	// Make sure you have
 	// - getters/setters
@@ -23,12 +46,17 @@ public class Book {
 	// - toString
 	// (optional: equals and hashCode) we may not use today but good to have around
 	public Book() {
+		logger.debug("creating book");
 		this.title = "unknown";
 	}
 	
 	public Book(String isbn, String authorFirstName, String authorLastName,
 			String title, String genre, int year) {
 		super();
+
+		logger.debug("creating book:" + "[isbn=" + isbn + ", authorFirstName=" + authorFirstName
+				+ ", authorLastName=" + authorLastName + ", title=" + title
+				+ ", genre=" + genre + ", year=" + year + "]");
 		this.isbn = isbn;
 		this.authorFirstName = authorFirstName;
 		this.authorLastName = authorLastName;
@@ -36,9 +64,11 @@ public class Book {
 		this.genre = genre;
 		this.year = year;
 	}
+	
 	public String getIsbn() {
 		return isbn;
 	}
+	
 	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}

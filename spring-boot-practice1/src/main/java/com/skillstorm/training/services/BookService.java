@@ -11,5 +11,7 @@ public interface BookService {
 	Book save(Book book);
 	
 	void delete(Book book);
+	
+	Iterable<Book> findByAuthorFirstNameAndAuthorLastName(String firstName, String lastName);
 
 }

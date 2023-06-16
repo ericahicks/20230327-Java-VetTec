@@ -24,6 +24,10 @@ public class BookServiceImplementation implements BookService {
 
 	@Override
 	public Iterable<Book> findAll() {
+		// Why should I filter the results in the query in the repository layer
+		//  instead of here in the service layer?
+		// 1. For reusability
+		// 2. For network performance - only send the data you need
 		return repo.findAll();
 	}
 
@@ -35,6 +39,12 @@ public class BookServiceImplementation implements BookService {
 	@Override
 	public void delete(Book book) {
 		repo.delete(book);
+	}
+
+	@Override
+	public Iterable<Book> findByAuthorFirstNameAndAuthorLastName(
+			String firstName, String lastName) {
+		return repo.findByAuthorFirstNameAndAuthorLastName(firstName, lastName);
 	}
 
 }
