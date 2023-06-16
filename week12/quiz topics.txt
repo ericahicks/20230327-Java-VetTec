@@ -1,0 +1,16 @@
+Tuesday exam Topics:
+Focus
+- Http and Client Server Architecture
+- Spring
+- Spring Boot
+- Spring MVC (model, view, controller) -- controller, service, and respository
+- Review your annotations for the controller, service, and repository classes
+
+Some
+- JPQL @Query annotation
+- validation
+
+None
+(not on the exam, good to know still)
+- global exception handler AOP
+- Agile development and Software Development Lifecycle
