@@ -1,5 +1,6 @@
 package com.skillstorm.training.models;
 
+import java.time.Instant;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -12,6 +13,7 @@ import javax.persistence.ManyToMany;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -23,6 +25,9 @@ public class Author {
 	private int id;
 	
 	private String name;
+	
+	@UpdateTimestamp
+	private Instant lastUpdatedOn;
 	                                      // FetchType.EAGER is not great for performance
 	@ManyToMany(mappedBy = "authors", fetch = FetchType.LAZY) // don't grab these inner objects from the database unless I ask  for  it
 //	@Cascade({CascadeType.PERSIST, CascadeType.SAVE_UPDATE, CascadeType.MERGE})
