@@ -1,0 +1,30 @@
+Group Work Feedback
+
+Customer/Address/City/Country Model classes
+--------------------------------------------
+- Don't use java.util.Date instead use something from java.time package
+    ex: java.time.Instant
+- Use annotations @UpdatedTime to generate the updated time whenever the object is changed
+- Use annotation @CreationTime
+
+TODO
+- - DTO
+-x- validate the email
+- - add service and controller layer
+
+Film/Category/Actor Model classes
+----------------------------
+- using a class for the jointable instead of an annotation make sense when you want other columns in the join table
+- how to create onetomany and manytomany
+- how to change the data type exlpicity to char(2) or text etc.
+
+- whitespace - do not put whitespace between an annotation and the field or class it annotates
+
+- @OneToMany
+  @JoinColumn(name = "column_id")
+  List<DataTypeA> stuff;
+vs
+  @ManyToOne(mappedBy = "fieldNameInJavaCode")
+  DataTypeB obj;
+
+- todo go over profiles

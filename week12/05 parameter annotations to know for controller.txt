@@ -1,0 +1,4 @@
+Parameter Annotations to Know
+- @PathVariable = look in the url path 
+- @ResponseBody = look in the request body
+- @RequestParam = look in the url request parameter key-value pairs

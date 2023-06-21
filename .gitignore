@@ -43,3 +43,6 @@ local.properties
 
 # Locally stored "Eclipse launch configurations"
 *.launch
+
+# vs code specific files
+.vscode
