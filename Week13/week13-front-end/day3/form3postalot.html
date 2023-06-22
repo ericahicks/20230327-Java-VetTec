@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    <style>div {margin-bottom: 16px;}</style>
+</head>
+
+<body>
+ 
+    <br><br><br>
+
+    <!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+    <!-- EXAMPLE 3: MAKE A FORM THAT makes a POST request to W3Schools
+            it sends our collected form data to be displayed -->
+
+    <form method="" action="https://www.w3schools.com/action_page.php"></form>
+        <p>POST form -- sends data somewhere</p>
+
+        <!-- This div is just for ease of reading the webpage -->
+        <div>
+            <!-- aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa -->
+            <!-- Add a label tag -->
+            <label for="">First Name: </label>
+            <!-- for attribute = ________ -->
+
+            <!-- Add a text input tag -->
+            <input id="" name="" type="" placeholder="" />/
+            <!-- id attribute = __________ 
+                 name attribute = ________ 
+                 type attribute = ________ 
+                 placeholder attribute = ________ 
+            -->
+        </div>
+
+        <!-- WARNING: each input needs a unique name attribute, or they will overwrite each other -->
+        <div>
+            <!-- Add another label tag and text input tag-->
+            <label for="">Last Name: </label>
+            <input id="" name="" type="" placeholder="" />
+        </div>
+
+        <div>
+            <!-- bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb -->
+            <!-- Add a number input
+                - the number type allows only numerical values 
+            -->
+            <label for="">Age: </label>
+            <input id="" name="" type="" step="" min="" max="" />
+            <!-- You can set the attributes
+                - min
+                - max
+                - step (increment)
+            -->
+        </div>
+
+        
+        <div>
+            <!-- Add another number input-->
+            <label for="">Number of pets: </label>
+            <input id="" name="" type="" step="" min="" max="" />
+        </div>
+
+        <!-- ccccccccccccccccccccccccccccccccccccccccccccccccccccc -->
+        <!-- Add a date input
+            - date type lets the user type in a date
+              or select it from a calendar 
+        -->
+        <div>
+            <label for="">Birthday: </label>
+            <input id="" name="" type="" />
+        </div>
+
+
+        <p>Whaddaya love?</p>
+        
+        <!-- ddddddddddddddddddddddddddddddddddddddddddddddddddddd -->
+        <!-- Add a color input
+            - color type uses a color picker, and submits the hex value
+         -->
+        <div>
+            <label for="">Favorite Color: </label>
+            <input id="" name="" type="">
+        </div>
+
+
+        <!-- eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee -->
+        <!-- Add checkbox inputs
+            - checkboxes submit a value if checked, and don't submit anything if not
+            - checkboxes MUST include the value property to give it a specific value 
+        -->
+        <div>
+            <input id="" name="" type="" value="" />
+            <!-- labels CAN be after...or ANYWHERE -->
+            <label for="">Pizza Lover</label>
+        </div>
+
+        <div>
+            <input id="" name="" type="" value="" />
+            <label for="">Music Lover</label>
+        </div>
+
+        <!-- ffffffffffffffffffffffffffffffffffffffffffffffffffffff -->
+        <!-- Add a radio button inputs
+            - radio buttons allow selection of ONLY one within a group 
+            - radio buttons in a group MUST have the same
+            name property so when you select one,
+            the others get deselected
+            - like with checkboxes, you need a value property
+        -->
+
+        <p>Which kind of pizza do you prefer?</p>
+
+        <div>
+            <input id="" name="" type="" value="" />
+            <label for="">Cheese Pizza</label>
+
+            <input id="" name="" type="" value="" />
+            <label for="">Pepperoni Pizza</label>
+
+            <input id="" name="" type="" value="" />
+            <label for="">Meat Lover's Pizza</label>
+
+            <input id="" name="" type="" value="" />
+            <label for="">Hawaiian Pizza</label>
+        </div>
+
+        <!-- ffffffffffffffffffffffffffffffffffffffffffffffffffffff -->
+        <!-- Add a drop down select tag
+            - the select tag creates a dropdown with choices
+            - the select tag must contain several option tags to choose from
+        -->
+        <p>What's your favorite genre of music?</p>
+
+        <!--  -->
+        <div>
+            <label for="">Favorite Genre: </label>
+            <!-- name is the key for any submitted choice -->
+            <select name="" id="">
+
+                <!-- each option needs a value and dropdown text -->
+                <option value="">Rock</option>
+                <option value="">R&B</option>
+                <option value="">EDM</option>
+                <option value="">Jazz</option>
+                <option value="">Reggae</option>
+                <option value="">Disco</option>
+                <option value="">Classical</option>
+
+            </select>
+        </div>
+
+        <!-- button type reset will clear the form -->
+        <button type="reset">RESET</button>
+        <!-- button type submit will submit the form -->
+        <button type="submit">SUBMIT</button>
+
+    </form>
+    
+</body>
+
+</html>
+
+<!-- 
+
+    form submission is very similar in format to JSON
+        - JavaScript Object Notation
+
+    {
+        first-name: "Jon",
+        last-name: "Provan",
+        age: 29,
+        music-preference: "Rock"
+    }
+
+ -->
