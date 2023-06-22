@@ -19,7 +19,7 @@
     <!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
     <!-- EXAMPLE 2: MAKE A FORM THAT makes a POST request to W3Schools
             it sends our collected form data to be displayed -->
-    <form method="" action="https://www.w3schools.com/action_page.php" enctype="application/x-www-form-urlencoded">
+    <form method="POST" action="https://www.w3schools.com/action_page.php" enctype="application/x-www-form-urlencoded">
         <!-- enctype attribute = encoding used to send form data key-value pairs
                     - enctype="application/x-www-form-urlencoded"  
                         is the default
@@ -34,7 +34,8 @@
                 (try making a POST request in Postman with the body of the request set to each of the above three types
                  on the very bottom of the window is a "console" button which you can open to see the raw http request sent)
                 -->
-        <input type="text" name="first-name" placeholder="John Doe">
+        <input type="text" name="first-name" placeholder="John">
+        <input type="text" name="last-name" placeholder="Doe">
         <button type="submit">Submit</button>
     </form>
 

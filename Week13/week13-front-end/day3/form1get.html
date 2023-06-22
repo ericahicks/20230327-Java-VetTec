@@ -27,7 +27,7 @@
             dealt with in some way
 
 
-        We can have the user fill in important information
+        We can have the user fill in important information - each will be best suited to a different type of input
             - name
             - birthday
             - SSN
@@ -46,7 +46,7 @@
             - buttons
             - input
             - label
-            - select
+            - select (drop downs)
 
         The <input> tag is critical and can take on many types
             - text
@@ -54,6 +54,8 @@
             - number
             - color
             - email
+            - password -- doesn't show what is being typed 
+            - tel (telephone number) -- does validation for you
             - radio buttons
             - checkboxes
             - file uploads
@@ -65,8 +67,8 @@
      -->
 
     <!-- A form tag has two important attributes:
-            - method
-            - action
+            - method = what type of http request method
+            - action = where to send that request
      -->
 
     <!-- CRUD operations
@@ -77,17 +79,18 @@
         U = update
         D = delete
 
-        C is done with a ____ request
-        R is done with a ____ request
-        U is done with a ____ request
-        D is done with a ____ request
+        C is done with a POST request
+        R is done with a GET request
+        U is done with a PUT request
+        D is done with a DELETE request
 
-        form's method property deals with ___ and ___
+        form's method property deals with GET and POST
 
-        ___ - the form-data will be transmitted as part of the url's request parameters
+        GET - the form-data will be transmitted as part of the url's request parameters
                 localhost:5500/forms.html?name=Erica&favorite-food=apples
+                localhost:5500/forms.html?username=erica&password=0000 BAD
 
-        ___ - the form-data will be transmitted as part of the http request's body
+        POST - the form-data will be transmitted as part of the http request's body
               by default html forms use application/x-www-form-urlencoded  
               which is similar to json
                 
@@ -99,18 +102,25 @@
     <!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
     <!-- EXAMPLE 1: MAKE A FORM THAT  makes a GET request to Google
          GET says "give me the resource in the action property" -->
-    <form method="" action="http://google.com">
+
+         <!-- =====================================================
+            TODO create a form that does a GET request to any url to see what happens 
+            =======================================================
+        -->
+
+    <form method="GET" action="https://amazon.com/search">
 
         <!-- All other previous tags are still relevant in a form -->
-        <p>GET form -- Go to Google.com/search?name=___</p>
-        <input type="" name="" placeholder="">
+        <p>GET form -- Go to Amazon.com/?</p>
+        <input type="text" name="animal" placeholder="cat">
 
         <!-- Add a button tag to submit the form, 
                 - - Add the attribute type="submit"  -- tells the form to send a GET request when clicked
                 - - Add the text for the button to display
              -->
-        <button type=""></button>
-        <button type=""></button>
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+    </form>
 
         <!-- Notice, not all characters are allowed in urls, because they have special meanings or could be misinterpretted
                 so some characters get encoded, for example
@@ -126,7 +136,7 @@
                 ) = %29
                 * = %2A
                 + = %2B
-                , = %2C
+                , = %2C -- This is a hexvalue so each digit can be 0123456789ABCDEF
                 - = %2D
                 . = %2E
                 / = %2F
@@ -138,7 +148,13 @@
                 ® = %AE
             -->
 
-    </form>
+            <!-- Likewise HTML doesn't like some special cahracters so instead use the unicode value 
+                < = lg;
+                > = gt;
+               -->
+<script>
+    console.log("hello world");
+</script>
 </body>
 
 </html>
