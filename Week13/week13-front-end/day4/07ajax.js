@@ -52,8 +52,9 @@ window.addEventListener('DOMContentLoaded', () => {
         xhr.onreadystatechange = () => {
             if (xhr.readyState === 4) {
                 // parse the data to display to the screen
-                let data = JSON.parse(xhr.responseText);
+                let response = JSON.parse(xhr.responseText);
                 // where do I want to display the text?
+                console.log(response);
             }
         };
         xhr.send(json);
