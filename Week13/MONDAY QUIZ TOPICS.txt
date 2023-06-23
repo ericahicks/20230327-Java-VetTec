@@ -1,0 +1,21 @@
+Study for Monday
+-=---------------
+- HTML tags
+- CSS selectors and styles
+- JavaScript basics
+    - Data types
+    - truthy/falsy
+    - loops
+    - arrays (methods including forEach, map, filter, reduce)
+    - lambdas higher order functions 
+    - asynch setInterval 
+    - is JS multithreaded?
+
+Announcements:
+-------------
+Monday 9am quiz
+       10am mock interviews
+Tuesday: Tony's QA on Spring
+Thursday morning: no lecture
+Thursday afternoon: lecture on Angular
+Friday: QA Presentation on HTML/CSS/JS

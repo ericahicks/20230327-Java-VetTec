@@ -8,3 +8,8 @@ setTimeout(() => {
     numDiv.textContent = "Whoohoo!";
 }, 3000); // code to run and how long to wait in miliseconds 
 
+let x = 0;
+setInterval(() => {
+    numDiv.innerText = x;
+    x++;
+}, 1000)

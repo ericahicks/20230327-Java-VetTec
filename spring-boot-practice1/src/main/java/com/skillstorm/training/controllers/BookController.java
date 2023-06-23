@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 //import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +25,7 @@ import com.skillstorm.training.services.BookService;
 
 //@Component
 //@Controller -- versatile if I want some of my methods to return html pages instead of json data
-
+@CrossOrigin(origins = "*")
 @RestController // This is a type of Component that is a controller that only
 				// returns json data
 @RequestMapping("/books")
