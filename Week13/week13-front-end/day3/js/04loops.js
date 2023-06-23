@@ -9,9 +9,14 @@ let count = 0;
 while (count++ < 10) {
     console.log(count);
 }
+// Note: of gets the values 
+for (let x of [1, 2, 3, 4]) {
+    console.log(x); // 1, 2, 3, 4
+}
 
+// Note: in gets the keys (here the keys are the index) 
 for (let x in [1, 2, 3, 4]) {
-    console.log(x);
+    console.log(x); // 0, 1, 2, 3
 }
 
 let person = {name: "Jo", height: "5'8\""};
