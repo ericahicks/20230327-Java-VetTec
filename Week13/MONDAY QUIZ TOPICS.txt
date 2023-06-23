@@ -16,6 +16,6 @@ Announcements:
 Monday 9am quiz
        10am mock interviews
 Tuesday: Tony's QA on Spring
-Thursday morning: no lecture
+Thursday morning: no lecture (Java cumulative mock interview)
 Thursday afternoon: lecture on Angular
 Friday: QA Presentation on HTML/CSS/JS
