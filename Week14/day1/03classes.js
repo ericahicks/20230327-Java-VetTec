@@ -47,5 +47,5 @@ class Animal {
 
 const cat = new Animal("Fluffy the cat", 5);
 
-let num = cat.getNumAnimals();
+let num = Animal.numAnimals;
 console.log(`num of animals is ${num}`); // template literal is like our Java String.format
