@@ -30,6 +30,10 @@ console.log(drizzt.hasOwnProperty("dodge")); // hasOwnProperty
 
 // ECMAScript 6 - this is a standard for the JavaScript language that browsers follow
 // older browsers may not support these newer features of the JavaScript language
+
+// class notation was added in 2015
+// private properties and methods notated with # was added in 2022
+
 class Animal {
     
     static #numAnimals = 0; // marks the property as private
@@ -40,9 +44,7 @@ class Animal {
     }
     static get numAnimals() {
         return Animal.#numAnimals;
-        
     }
-    
 }
 
 const cat = new Animal("Fluffy the cat", 5);
