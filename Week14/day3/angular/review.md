@@ -67,7 +67,14 @@ Example: The src of an image can be set using the notation
 
 `<img [src]="imgUrl" >` inside the "" is a field or method from the component.ts
 
+[] = property binding and is one-way
+[()] = banana in a box notation is two-way
+commonly used on an input field to so the 
+property in component.ts
 
+```
+<input [(ngModel)]>="nameoffieldtoset" >
+```
 
 #### *Directives*
 
