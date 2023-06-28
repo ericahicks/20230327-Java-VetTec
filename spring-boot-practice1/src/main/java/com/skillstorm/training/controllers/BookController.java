@@ -25,7 +25,7 @@ import com.skillstorm.training.services.BookService;
 
 //@Component
 //@Controller -- versatile if I want some of my methods to return html pages instead of json data
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*") //(origins = "localhost:4200")
 @RestController // This is a type of Component that is a controller that only
 				// returns json data
 @RequestMapping("/books")

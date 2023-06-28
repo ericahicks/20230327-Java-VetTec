@@ -41,6 +41,10 @@ local.properties
 # External tool builders
 .externalToolBuilders/
 
+# VS code
+.vscode
+node_modules
+
 # Locally stored "Eclipse launch configurations"
 *.launch
 
