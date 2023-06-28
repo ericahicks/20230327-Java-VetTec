@@ -91,6 +91,7 @@ interface Dog {
 
 // When to use interface vs type
 // - interfaces let you extend them
-// - types let you keep changing the type itself
+// - interface lets you keep adding fields to the interface itself (like javascript objects we can define more properties and methods on)
+// - types don't let you redefine them or use the extends keyword
 
 type a = string;
