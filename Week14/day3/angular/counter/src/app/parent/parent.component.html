@@ -1,0 +1,20 @@
+<p>Hi my name is {{ name }} </p>
+<p *ngIf="hasChildren()">My children are: </p>
+<!-- angular directive to loop through the list of children-->
+<ul>
+    <li *ngFor="let childName of children">{{ childName }} </li>
+</ul>
+<!-- <p *ngIf="hasChildren()" *ngFor="let c of children">Lovely!</p> -->
+<ng-container *ngIf="hasChildren()"> <!-- useful hack for 2 structoral directives -->
+<p *ngFor="let c of children">Lovely!</p>
+</ng-container>
+
+
+<child [parentName]="name" ></child><!-- </child> (nameEmit)="recordChild($event)"></child> --> 
+<child [parentName]="name" ></child>
+<child [parentName]="name" ></child>
+<child [parentName]="name" ></child><!-- 
+ ------------         --------- child's emit event parent is listening for - calls parent method
+         child property - assigned the value of the parent property "name"
+-->
+<!-- custom property -- I'm handing information from the parent to the child -->

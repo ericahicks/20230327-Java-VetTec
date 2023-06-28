@@ -79,7 +79,10 @@ property in component.ts
 #### *Directives*
 
 1. structural 
-    a. ngFor
+    a. ngFor -- This is used with a for each loop on the element you want repeated 
+    ```
+    <li *ngFor="let something of somethings">{{ something }} </li>
+    ```
     b. ngIf
         we'll need to talk about `<ng-container>`
     c. ngSwitch
@@ -95,7 +98,7 @@ property in component.ts
 ### Services
 
 - dummy data
-    `RxJS` classes
+    `RxJS` classes Observable and of need to be imported
 - api data
     `HTMLClient`
 
