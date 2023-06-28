@@ -148,10 +148,25 @@
                 ® = %AE
             -->
 
-            <!-- Likewise HTML doesn't like some special cahracters so instead use the unicode value 
-                < = lg;
-                > = gt;
+            <!-- Likewise HTML doesn't like some special cahracters so instead use the character entity value or unicode value like &#1F601;
+Character	Entity	
+&	        &amp;	Interpreted as the beginning of an entity or character reference.
+<	        &lt;	Interpreted as the beginning of a tag
+>	        &gt;	Interpreted as the ending of a tag
+"	        &quot;	Interpreted as the beginning and end of an attribute's value.
+&nbsp;	    Interpreted as the non breaking space.
+–	        &ndash;	Interpreted as the en dash (half the width of an em unit).
+—	        &mdash;	Interpreted as the em dash (equal to width of an "m" character).
+©	        &copy;	Interpreted as the copyright sign.
+®	        &reg;	Interpreted as the registered sign.
+™	        &trade;	Interpreted as the trademark sign.
+≈	        &asymp;	Interpreted as almost equal to sign.
+≠	        &ne;	Interpreted as not equal to sign.
+£	        &pound;	Interpreted as the pound symbol.
+€	        &euro;	Interpreted as the euro symbol.
+°	        &deg;	Interpreted as the degree symbol.
                -->
+    &#128512;
 <script>
     console.log("hello world");
 </script>

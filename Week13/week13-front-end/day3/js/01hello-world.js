@@ -20,7 +20,7 @@ greet("Ann", "Barbara"); // This is only possible becasue of hoisting
 function greet(name, name2) {
     console.log("Hello, " + name);
     console.log("Hello, "  + name2) // This line didn't end with a semicolon! Js adds them for you if you forget
-                                   // This can cause unexpected behavior
+                                   // This can cause unexpected behavior (for examples see https://www.freecodecamp.org/news/lets-talk-about-semicolons-in-javascript-f1fe08ab4e53/)
     console.log(`This is a special string ${name}`); // template literal ${varname}
 }
 
