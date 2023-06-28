@@ -43,9 +43,11 @@ ng generate component comp-name --standalone
 
 ### Data binding
 
-Angular supports two-way data binding. We can define some data in the .ts file and referer to it in the .html template.
+Angular supports two-way data binding. 
 
 #### *Template literals*
+
+We can define some data in the .ts file and referer to it in the .html template.
 
 In my html I can use `<h1>{{ property }}</h1>`
 
@@ -58,6 +60,13 @@ In my html I can use `<h1>{{ property }}</h1>`
 - To define your own "formatters" pipes we can create a class annotated with @Pipe and metadata for the name of the pipe. The class implements one interface PipeTransform with the tranform method that gets applied to the value. To actually use it in your component, add it to the @Component meta data object {declarations:[nameofyourpipeclas]}
 
 #### *Property binding*
+
+Instead of displaying data, let's use the data in the component.ts file to set the properties of html elements in the template.
+
+Example: The src of an image can be set using the notation
+
+`<img [src]="imgUrl" >` inside the "" is a field or method from the component.ts
+
 
 
 #### *Directives*
