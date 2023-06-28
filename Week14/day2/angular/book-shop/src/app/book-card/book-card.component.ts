@@ -7,6 +7,7 @@ import { Book } from "../models/Book";
   styleUrls: ['./book-card.component.css']
 })
 export class BookCardComponent implements OnInit {
+  books: Book[] = [];
 
   constructor() { }
 
