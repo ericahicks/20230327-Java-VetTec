@@ -23,6 +23,13 @@
         <div *ngFor="let l of log; let i = index">{{ (i + 1) + ". " + l }}</div>
     </div>
 
+    <div class="bold-box">
+        This would be easier to access the child's property that doing event emitting
+        <em><b>{{ child1.name }} </b></em>
+        <em><b>{{ child2.name }} </b></em>
+        <em><b>{{ child3.name }} </b></em>
+        <em><b>{{ child4.name }} </b></em>
+    </div>
 </div>
 <!-- ------------------------------------------------------------------>
 
@@ -42,10 +49,10 @@
     as some javascript it needs to run, here the code is just a variable name, but it could also have been a method.
 -->
 <div class="flex col">
-    <child [parentName]="name" (nameEmit)="recordChild($event)" name="Suzie"></child>
-    <child [parentName]="name" (nameEmit)="recordChild($event)" name="Billy Bob"></child>
-    <child [parentName]="name" (nameEmit)="recordChild($event)" name="Bobby Jr"></child>
-    <child [parentName]="name" (nameEmit)="recordChild($event)" name="Little Bobby Table"></child>
+    <child #child1 [parentName]="name" (nameEmit)="recordChild($event)" name="Suzie"></child>
+    <child #child2 [parentName]="name" (nameEmit)="recordChild($event)" name="Billy Bob"></child> 
+    <child #child3 [parentName]="name" (nameEmit)="recordChild($event)" name="Bobby Jr"></child>
+    <child #child4 [parentName]="name" (nameEmit)="recordChild($event)" name="Little Bobby Table"></child> 
     <!-- 
            ------------         --------- child's emit event parent is listening for - calls parent method
            CHILD's property     CHILD's emit event
