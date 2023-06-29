@@ -1,0 +1,26 @@
+If you are running into issues testing/running your project
+-----------------------------------------------------------
+Explore these features
+- h2 db for temporary database to test with
+
+- mysql export data so everyone has a copy of the same schema.sql and data.sql to fill there local database with
+
+- Amazon RDS to host your databse using the free tier 
+(the last week we will ive you access to our skillstorm AWS account
+ while we are covering the AWS Cloud Practition Certification material https://aws.amazon.com/certification/certified-cloud-practitioner/ )
+
+-------------------------------------------------------------
+NOTE:
+- import HttpClientModule in app.modules.ts
+- import HttpClient in your service
+- inject it in the constructor
+- call the .get or .post methods
+
+- ng generate enironments
+- store your key-value pairs like 
+apiUrl: "localhost:8080"
+- import { environment } from ----- in your service class
+
+Collect user input in forms
+- template - simpler to set up good for basic forms
+- reactive - able to handle more complexity and is more dynamic
