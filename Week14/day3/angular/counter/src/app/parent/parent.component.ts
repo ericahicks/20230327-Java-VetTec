@@ -32,6 +32,9 @@ export class ParentComponent implements OnInit {
 
   recordChild(childName: string) {
     console.log("recording child of name " + childName);
+    // use callback fn to
+    // wait a tick first to avoid one-time devMode
+    // unidirectional-data-flow-violation error
     setTimeout(() => { 
       this.log.push(childName + " has been added."); 
     }, 0)
