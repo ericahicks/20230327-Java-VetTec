@@ -6,7 +6,9 @@ import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
   styleUrls: ['./child.component.css']
 })
 export class ChildComponent implements OnInit {
-  name: string = "suzie";
+
+  @Input()
+  name: string = "Child of mine"; // default
 
   @Input()
   parentName!: string; // ! means trust me it's going to be there

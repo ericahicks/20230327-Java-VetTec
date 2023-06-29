@@ -12,13 +12,15 @@ export class ParentComponent implements OnInit {
 
   children!: string[];
 
+  log: string[] = [];
 
-  constructor(private service: ChildrenService) { 
+
+  constructor(private service: ChildrenService) {
     this.service = service;
   }
 
   ngOnInit() {
-    this.service.getDummyData().subscribe(data => { 
+    this.service.getDummyData().subscribe(data => {
       this.children = data;
     })
   }
@@ -28,10 +30,12 @@ export class ParentComponent implements OnInit {
   }
 
 
-  // recordChild(childName: string) {
-  //   console.log("recording child of name " + childName);
-  //   this.children.push(childName);
-  //   console.log("children is now " + this.children);
-  // }
+  recordChild(childName: string) {
+    console.log("recording child of name " + childName);
+    setTimeout(() => { 
+      this.log.push(childName + " has been added."); 
+    }, 0)
+
+  }
 
 }
