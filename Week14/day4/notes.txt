@@ -1,11 +1,14 @@
 If you are running into issues testing/running your project
 -----------------------------------------------------------
-Explore these features
-- h2 db for temporary database to test with
+Explore these options/features
+- h2 db for temporary database to test with in Spring boot
+(https://www.baeldung.com/spring-boot-h2-database)
 
-- mysql export data so everyone has a copy of the same schema.sql and data.sql to fill there local database with
+- mysql export data so everyone has a copy of the same schema.sql and data.sql to fill there local database with in MySQL Workbench
+(https://dev.mysql.com/doc/workbench/en/wb-admin-export-import-management.html)
 
-- Amazon RDS to host your databse using the free tier 
+- Amazon RDS to host your databse using the free tier on AWS cloud provider
+(https://aws.amazon.com/rds/free/?loc=ft#Free_Tier)
 (the last week we will ive you access to our skillstorm AWS account
  while we are covering the AWS Cloud Practition Certification material https://aws.amazon.com/certification/certified-cloud-practitioner/ )
 

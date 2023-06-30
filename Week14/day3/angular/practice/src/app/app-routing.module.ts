@@ -6,10 +6,11 @@ import { Example3Component } from './example3/example3.component';
 import { Example4Component } from './example4.component';
 
 const routes: Routes = [{path: "", component: Example1Component }, // default
-{path: "example1", pathMatch: "full", component: Example1Component},
-{path: "example2", component: Example2Component}, // NOTE the path cannot start with a / 
-{path: "example3", component: Example3Component}, // BAD "/example2"
-{path: "example4", component: Example4Component},];
+// {path: "example/id", component: Example1Component }]; // can't use :id to choose a component only what data to load from your ts file
+{path: "example/1", component: Example1Component },// can't use :id to choose a component only what data to load from your ts file
+{path: "example/2", component: Example2Component }, // can't use :id to choose a component only what data to load from your ts file
+{path: "example/3", component: Example3Component }, // can't use :id to choose a component only what data to load from your ts file
+{path: "example/4", component: Example4Component }]; // can't use :id to choose a component only what data to load from your ts file
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
