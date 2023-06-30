@@ -6,6 +6,8 @@ import { Barbeque } from './barbeque';
 })
 export class BarbequeService {
 
+  url: string = "http://localhost:8080/barbeque" // TODO put this in an environment file
+
   constructor() { }
 
   findAll() { }
