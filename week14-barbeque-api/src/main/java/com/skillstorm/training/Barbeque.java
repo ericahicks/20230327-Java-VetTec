@@ -21,7 +21,7 @@ public class Barbeque {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private short id;
+	private Short id; 
 	
 	private String meatType;
 	
@@ -31,11 +31,11 @@ public class Barbeque {
 	
 	private short cookingTime;
 
-	public short getId() {
+	public Short getId() {
 		return id;
 	}
 
-	public void setId(short id) {
+	public void setId(Short id) {
 		this.id = id;
 	}
 

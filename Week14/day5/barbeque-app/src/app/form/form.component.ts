@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Barbeque } from '../barbeque';
+import { BarbequeService } from '../barbeque.service';
 
 @Component({
   selector: 'app-form',
@@ -6,5 +8,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent {
+
+  // this will hold the form data
+  model: Barbeque = new Barbeque();
+
+  constructor(private service: BarbequeService) {  }
+
+  onSubmit() { // no parameter bc the data is at the class level
+    this.service.save(this.model).subscribe((data) => {
+      console.log(data);
+    })
+  }
 
 }

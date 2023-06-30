@@ -13,5 +13,11 @@
             <td>Smoked</td>
             <td>7 hours</td>
         </tr>
+        <tr *ngFor="let item of barbequeItems">
+            <td>{{ item.meatType | titlecase }}</td> <!-- Put some dummy data here for now to see it displayed -->
+            <td>{{ item.sauceType | titlecase }}</td>
+            <td>{{ item.cookingStyle | titlecase }}</td>
+            <td>{{ item.cookingTime }} hours</td>
+        </tr>
     </table>
 </div>
