@@ -6,19 +6,22 @@ import { AppComponent } from './app.component';
 import { ListComponent } from './list/list.component';
 import { FormComponent } from './form/form.component';
 import { HttpClientModule } from "@angular/common/http"
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Form2Component } from './form2/form2.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListComponent,
-    FormComponent
+    FormComponent,
+    Form2Component
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

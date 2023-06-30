@@ -1,0 +1,57 @@
+<div id="form-page">
+    <h2>Add New Barbeque Item</h2>
+    <div>
+        <form (ngSubmit)="onSubmit();" [formGroup]="myForm">
+            <div class="form-group">
+                <label for="meatType">Meat Type:</label>
+                <input [ngClass]="{'border border-danger-subtle' : true}" class="form-control" type="text" id="meatType"
+                    name="meatType" value="ribs" formControlName="meatType">
+                <!-- in order to be submitted it needs a name -->
+                <div *ngIf="meatType != null && !meatType.valid && (meatType.dirty || meatType.touched)">
+                    <div [hidden]="!meatType.errors?.['required']">
+                        Meat is required
+                    </div>
+                    <div [hidden]="!meatType.errors?.['minLength']">
+                        Meat must be more than 2 characters
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="sauce">Sauce Type:</label>
+                <input class="form-control" type="text" id="sauce" name="sauce" value="barbeque"
+                    formControlName="sauceType">
+            </div>
+            <div class="form-group">
+                <label for="cooking-style">Cooking Style</label>
+                <input class="form-control" type="text" id="cooking-style" name="cooking-style" value="smoked"
+                    formControlName="cookingStyle">
+            </div>
+            <div class="form-group">
+                <label for="cookingTime">Cooking Time</label>
+                <input class="form-control" type="number" id="cookingTime" name="cookingTime" value="7"
+                    formControlName="cookingTime"><span> hours</span>
+                <div *ngIf="cookingTime != null && !cookingTime.valid && (cookingTime.dirty || cookingTime.touched)">
+                    <div [hidden]="!cookingTime.errors?.['required']">
+                        Cooking Time is required
+                    </div>
+                    <div [hidden]="!cookingTime.errors?.['max']">
+                        Cooking time must be less than 18 hours
+                    </div>
+                    <div [hidden]="!cookingTime.errors?.['min']">
+                        Cooking time must be more than 0 hours
+                    </div>
+                </div>
+            </div>
+            <input class="btn btn-primary" [disabled]="!myForm.valid" type="submit" value="Submit">
+            <!-- value is the text displayed on the button-->
+            <!--                                ----------
+                                            property binding -- we give disabled a true or false value
+        -->
+        </form>
+    </div>
+    <div>
+        TODO remove this:<br>
+        {{ myForm.value | json }}
+        <!-- Take this object and stringify it in json format to display to screen for debugging -->
+    </div>
+</div>
