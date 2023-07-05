@@ -9,6 +9,7 @@ import { HttpClientModule } from "@angular/common/http"
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Form2Component } from './form2/form2.component';
 
+// decorators
 @NgModule({
   declarations: [
     AppComponent,

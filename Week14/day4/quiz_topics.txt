@@ -1,0 +1,71 @@
+Wed Quiz Topics:
+	- TypeScript 
+		○ types 
+		○ Operators - new ones like **, ? vs ! 
+		○ type declarations
+		○ Interfaces
+		○ Classes
+		○ Constructors
+		○ Access modifiers
+		○ Getters/setters obj.field
+		○ Import statements
+		○ Export statements
+	- Angular CLI
+		○ ng new
+		○ ng generate
+			§ Component
+			§ Class
+			§ Service
+			§ (Environments)
+		○ Options
+			§ --inline-styles
+			§ --inline-template
+			§ --standalone
+			§ --flat
+			§ --skip-tests
+		○ ng serve
+	- Angular project structure
+		○ angular.json
+		○ package.json
+		○ Index.html
+		○ styles.cs
+		○ src
+		○ app-root
+	- Components
+		○ Selector (name of tag)
+		○ Template html
+		○ Styles
+		○ Component class (data state)
+	- Modules
+		○ app.module.ts
+		○ app-routing.module.ts
+		○ Imports array
+		○ Declarations array
+		○ NgModule annotation
+	- Service classes
+		○ Dependency injection
+			§ @Injectable
+		○ Observables
+			§ .subscribe(  )
+		○ HttpClient
+			§ Returns observables
+			§ Let's us send http requests
+	- Forms
+		○ Template vs Reactive
+		○ [(ngModel)]
+		○ FormGroup and FormControl objects
+		○ (ngSubmit) even
+	- Template literals
+	- Pipes
+	- Directives
+		○ Structural *ngFor and *ngIf
+	- Property binding
+		○ @Input
+		○ @Output
+			§ EventEmitter
+		○ [] property binding
+		○ () event binding
+		○ [()] two way binding
+	
+	
+	

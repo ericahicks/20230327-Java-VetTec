@@ -1,12 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Barbeque } from './barbeque';
 import { HttpClient } from '@angular/common/http'
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BarbequeService {
+
+  barbequeItems: Barbeque[] = []; // TODO behavior subject to subscribe to this instead
+
+  // TODO have multiple components subscribe to the bbqPubSub to get live-updates between components
+  bbqPubSub: BehaviorSubject<Barbeque[]> = new BehaviorSubject(this.barbequeItems); 
+
 
   url: string = "http://localhost:8080/barbeque" // TODO put this in an environment file
 
