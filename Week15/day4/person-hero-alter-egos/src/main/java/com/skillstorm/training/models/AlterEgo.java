@@ -1,5 +1,6 @@
 package com.skillstorm.training.models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,25 +15,21 @@ import java.util.Objects;
 // JPA annotation
 @Entity
 public class AlterEgo {
-	
+
 	// properties
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id; 
-	
+	private Long id;
+
 	private String name;
-	
-	private List<String> superpowers; // what does this default to? null
-	
+
+	private String superpowers;
+
 	private String weakness;
-	
+
 	// Set up the one-to-one relationship between Person and AlterEgo
-	@OneToOne(mappedBy = "", cascade = "", orphanRemoval = "") 
-	Person person; 
-	
-	public AlterEgo() {
-		this.superpowers = new ArrayList<>();
-	}
+	@OneToOne(mappedBy = "alterEgo", cascade = CascadeType.ALL, orphanRemoval = true)
+	Person person;
 
 	public Long getId() {
 		return id;
@@ -50,11 +47,11 @@ public class AlterEgo {
 		this.name = name;
 	}
 
-	public List<String> getSuperpowers() {
+	public String getSuperpowers() {
 		return superpowers;
 	}
 
-	public void setSuperpowers(List<String> superpowers) {
+	public void setSuperpowers(String superpowers) {
 		this.superpowers = superpowers;
 	}
 
@@ -65,9 +62,20 @@ public class AlterEgo {
 	public void setWeakness(String weakness) {
 		this.weakness = weakness;
 	}
-	
+
 	public void addSuperpower(String superpower) {
-		this.superpowers.add(superpower);
+		if (this.superpowers == null || this.superpowers.isEmpty())
+			this.superpowers = superpower;
+		else
+			this.superpowers += ", " + superpower;
+	}
+
+	public Person getPerson() {
+		return person;
+	}
+
+	public void setPerson(Person person) {
+		this.person = person;
 	}
 
 	@Override
@@ -95,6 +103,5 @@ public class AlterEgo {
 		AlterEgo other = (AlterEgo) obj;
 		return Objects.equals(id, other.id);
 	}
-	
 
 }

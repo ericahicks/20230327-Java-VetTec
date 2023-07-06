@@ -17,9 +17,27 @@ and what responses look like.
 		</dependency>
 
 
-2. Start up your application and go to http://localhost:8080/v3/swagger-ui/index.html
+2. Start up your application and go to http://localhost:8080/swagger-ui/index.html
 
 3. To customize the documentation, add annotations:
+
+Some annotations we can use are
+`@Operation`
+`@ApiResponse`
+`@Content`
+`@Schema`
+`@ArraySchema`
+
 https://github.com/swagger-api/swagger-core/wiki/Swagger-2.X---Annotations 
+
+4. You can customize the documentation settings/configurations in the application.properties file
+
+```
+# Sort the API paths according to their HTTP methods 
+springdoc.swagger-ui.operationsSorter=method
+
+# Change the file-name where the interactive html page can be found so its now http://localhost:8080/swagger-ui-custom.html
+springdoc.swagger-ui.path=/swagger-ui-custom.html
+```
 
 
