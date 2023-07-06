@@ -1,1 +1,40 @@
-<p>superhero-form works!</p>
+<form [formGroup]="heroForm" (ngSubmit)="onSubmit()" >
+    <div>
+      <input hidden type="text" id="id" formControlName="id">
+    </div>
+    
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" formControlName="name">
+    </div>
+    
+    <div>
+      <label for="job">Job Title:</label>
+      <input type="text" id="job" formControlName="job">
+    </div>
+    
+    <div formGroupName="alterEgo">
+      <h3>Alter Ego</h3>
+      <div>
+        <input type="text" hidden id="id" formControlName="id">
+      </div>
+    
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" formControlName="name">
+      </div>
+    
+      <div>
+        <label for="superpowers">Superpowers:</label>
+        <input type="text" id="superpowers" formControlName="superpowers">
+      </div>
+    
+      <div>
+        <label for="weakness">Weakness:</label>
+        <input type="text" id="weakness" formControlName="weakness">
+      </div>
+    </div>
+    <div>
+        <input type="submit" value="Submit"> 
+    </div>
+  </form>
