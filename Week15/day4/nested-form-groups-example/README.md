@@ -1,10 +1,14 @@
 # NestedFormGroupsExample
 
+This project's backend can be found at [Backend REST API](https://github.com/ericahicks/20230327-Java-VetTec/tree/main/Week15/day4/person-hero-alter-egos) .
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.1.
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+
+Run the backend using Spring Tool Suit in the Boot dashboard start up the server so the HTTP requests can go to (http://localhost:8080/)
 
 ## Code scaffolding
 
