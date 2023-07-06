@@ -22,12 +22,17 @@ export class PersonService {
   // }
 
   update(person: Person) {
+    // TODO update in the database the name
     this.person.name = person.name;
     this.person.favoriteColor = person.favoriteColor;
 
     // THIS IS THE IMPORTANT METHOD TO PUBLISH THE CHANGES TO
     // THE SUBSCRIBERS
     this.subject.next(this.person);
+  }
+
+  get() {
+    // TODO pull from database (this would be used on startup or login etc.)
   }
 
 }
