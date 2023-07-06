@@ -1,1 +1,13 @@
-<p>display works!</p>
+<div id="display">
+
+    <h2>Person Information</h2>
+
+    <p id="name"> Name: {{ person.name }}</p>
+
+    <p id="favoriteColor"> Favorite Color: {{ person.favoriteColor }} </p>
+
+    <div class="box" [ngStyle]="{'background-color': person.favoriteColor }" >
+
+    </div>
+
+</div>

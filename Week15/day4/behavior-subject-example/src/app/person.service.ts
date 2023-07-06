@@ -8,7 +8,7 @@ import { BehaviorSubject } from 'rxjs';
 export class PersonService {
 
   // I need a regular variable of type person
-  public person: Person = new Person('unknown', '#FFFFFF');
+  public person: Person = new Person('unknown', '#000000');
 
   // I need a BehaviorSubject to wrap the person object, 
   // so components can subscribe
@@ -22,7 +22,11 @@ export class PersonService {
   // }
 
   update(person: Person) {
-    this.person = person;
+    this.person.name = person.name;
+    this.person.favoriteColor = person.favoriteColor;
+
+    // THIS IS THE IMPORTANT METHOD TO PUBLISH THE CHANGES TO
+    // THE SUBSCRIBERS
     this.subject.next(this.person);
   }
 

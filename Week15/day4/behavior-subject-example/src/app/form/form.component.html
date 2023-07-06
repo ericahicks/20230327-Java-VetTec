@@ -1,9 +1,10 @@
+<div>
 <form (ngSubmit)="onSubmit()" #myForm="ngForm">
     <div>
         <label for="name">
             Name:
         </label>
-        <input [(ngModel)]="model.name" id="name" type="text" name="name" required #name="ngModel">
+        <input [(ngModel)]="tempChanges.name" id="name" type="text" name="name" required #name="ngModel">
         <div [hidden]="name.valid || name.pristine">
             Name is required
         </div>
@@ -12,8 +13,9 @@
         <label for="color">
             Favorite Color:
         </label>
-        <input [(ngModel)]="model.favoriteColor" id="color" type="color" name="favoriteColor">
+        <input [(ngModel)]="tempChanges.favoriteColor" id="color" type="color" name="favoriteColor">
     </div>
     <input type="submit" value="Submit">
 
 </form>
+</div>

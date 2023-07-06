@@ -1,0 +1,9 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: calc(16.66%); /* One-sixth of the screen width */
+    height: 100vh; /* Full height of the viewport */
+    background-color: #f0f0f0;
+  }
+  
