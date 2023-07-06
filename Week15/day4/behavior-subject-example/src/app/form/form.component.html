@@ -1,0 +1,19 @@
+<form (ngSubmit)="onSubmit()" #myForm="ngForm">
+    <div>
+        <label for="name">
+            Name:
+        </label>
+        <input [(ngModel)]="model.name" id="name" type="text" name="name" required #name="ngModel">
+        <div [hidden]="name.valid || name.pristine">
+            Name is required
+        </div>
+    </div>
+    <div>
+        <label for="color">
+            Favorite Color:
+        </label>
+        <input [(ngModel)]="model.favoriteColor" id="color" type="color" name="favoriteColor">
+    </div>
+    <input type="submit" value="Submit">
+
+</form>
