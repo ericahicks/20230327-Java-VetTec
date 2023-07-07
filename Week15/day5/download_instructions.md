@@ -77,6 +77,14 @@ You might want to have a look at the extended tutorial and you should probably r
 
 -------------
 
+```
+git init
+git remote add -f origin <url>
+git config core.sparseCheckout true
+echo "Week15/Day5/practice-warehouse-gui/" >> .git/info/sparse-checkout
+git pull origin main
+```
+
 ## Get the code up and running
 
 1. Once you have the files downloaded, open Visual Studio Code, select Open Folder, and navigate to the Angular project's root directory. Open the folder.
