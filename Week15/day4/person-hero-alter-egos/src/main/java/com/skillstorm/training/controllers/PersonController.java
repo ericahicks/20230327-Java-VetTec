@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -64,31 +65,42 @@ public class PersonController {
 	// TODO Save person w/o alter ego info
 	
 	// Creating person w/ alter ego info
+//	@PostMapping
+//	@ResponseStatus(code = HttpStatus.CREATED)
+//	@Transactional // when I'm doing multiple saves/deletes/updates I want all to succeed or all to fail
+//	public Person create(@RequestBody Person person) {
+//		// save the alter ego first 
+//		AlterEgo ego = person.getAlterEgo();
+////		ego.setPerson(null);
+//		ego = alterRepo.save(ego); // TODO put these calls to the repos in a service class
+//		
+//		// ERROR something we are getting from the frontend is NULL!!!	
+//		// TODO add null checks -- right now we are depending on our frontend form validation which could be circumvented
+//
+//		 // Create a Person record without a reference to the ego record yet
+//		 person.setAlterEgo(null);
+//		 logger.debug("trying to persist the person without the ego object");
+//		 
+//		 // ERROR was detached entity passed to persist: com.skillstorm.training.models.Person
+//		 // So use the entityMangaer.merge( ) method to attach it
+//		 person = entityManager.merge(person);
+//		 
+//		// relink the ego and the person
+//		ego.setPerson(person);
+//		person.setAlterEgo(ego);
+//
+//		// then save the person
+//		return repo.save(person);
+//	}
+	
 	@PostMapping
+	@Transactional
 	@ResponseStatus(code = HttpStatus.CREATED)
-	@Transactional // when I'm doing multiple saves/deletes/updates I want all to succeed or all to fail
-	public Person create(@RequestBody Person person) {
-		// save the alter ego first 
-		AlterEgo ego = person.getAlterEgo();
-		ego.setPerson(null);
-		ego = alterRepo.save(ego); // TODO put these calls to the repos in a service class
-		
-		// ERROR something we are getting from the frontend is NULL!!!	
-		// TODO add null checks -- right now we are depending on our frontend form validation which could be circumvented
-
-		 // Create a Person record without a reference to the ego record yet
-		 person.setAlterEgo(null);
-		 logger.debug("trying to persist the person without the ego object");
-		 
-		 // ERROR was detached entity passed to persist: com.skillstorm.training.models.Person
-		 // So use the entityMangaer.merge( ) method to attach it
-		 
-		// relink the ego and the person
-		ego.setPerson(person);
+	public Person save(@RequestBody Person person) {
+		// save the ego first
+		AlterEgo ego = alterRepo.save(person.getAlterEgo());
 		person.setAlterEgo(ego);
-
-		 person = entityManager.merge(person);
-		// then save the person
+		
 		return repo.save(person);
 	}
 	
