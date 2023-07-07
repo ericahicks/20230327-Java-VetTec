@@ -1,8 +1,14 @@
 package com.skillstorm.training.controllers;
 
+import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.skillstorm.training.models.AlterEgo;
 import com.skillstorm.training.models.Person;
 import com.skillstorm.training.repositories.AlterEgoRepository;
 import com.skillstorm.training.repositories.PersonRepository;
@@ -22,9 +29,15 @@ import com.skillstorm.training.repositories.PersonRepository;
 //import org.springframework.data.domain.PageRequest;
 //import org.springframework.data.domain.Pageable;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/people")
 public class PersonController {
+	
+	Logger logger = LoggerFactory.getLogger(getClass());
+	
+	@Autowired
+	EntityManager entityManager;
 	
 	// TODO inject the service 
 	@Autowired
@@ -53,9 +66,27 @@ public class PersonController {
 	// Creating person w/ alter ego info
 	@PostMapping
 	@ResponseStatus(code = HttpStatus.CREATED)
+	@Transactional // when I'm doing multiple saves/deletes/updates I want all to succeed or all to fail
 	public Person create(@RequestBody Person person) {
 		// save the alter ego first 
-		alterRepo.save(person.getAlterEgo()); // TODO put these calls to the repos in a service class
+		AlterEgo ego = person.getAlterEgo();
+		ego.setPerson(null);
+		ego = alterRepo.save(ego); // TODO put these calls to the repos in a service class
+		
+		// ERROR something we are getting from the frontend is NULL!!!	
+
+		 // ERROR was detached entity passed to persist: com.skillstorm.training.models.Person
+		 // Create a Person record without a reference to the ego record yet
+		 person.setAlterEgo(null);
+		 logger.debug("trying to persist the person without the ego object");
+		 person = entityManager.merge(person);
+//		 entityManager.persist(person);
+//		 entityManager.flush();
+		 
+		// relink the ego and the person
+		ego.setPerson(person);
+		person.setAlterEgo(ego);
+		
 		// then save the person
 		return repo.save(person);
 	}

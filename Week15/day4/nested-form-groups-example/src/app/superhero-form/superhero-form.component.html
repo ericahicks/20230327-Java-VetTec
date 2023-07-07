@@ -1,40 +1,58 @@
-<form [formGroup]="heroForm" (ngSubmit)="onSubmit()" >
-    <div>
-      <input hidden type="text" id="id" formControlName="id">
-    </div>
-    
-    <div>
-      <label for="name">Name:</label>
-      <input type="text" id="name" formControlName="name">
-    </div>
-    
-    <div>
-      <label for="job">Job Title:</label>
-      <input type="text" id="job" formControlName="job">
-    </div>
-    
-    <div formGroupName="alterEgo">
-      <h3>Alter Ego</h3>
-      <div>
-        <input type="text" hidden id="id" formControlName="id">
+<div class="position-relative">
+  <div class="position-absolute top-10 start-50 translate-middle-x">
+    <form [formGroup]="heroForm" (ngSubmit)="onSubmit()" class="shadow-sm p-3 bg-body-tertiary rounded">
+      <h3>Add Superhero</h3>
+      <div class="row">
+        <div class="col-12">
+          <label class="form-label" for="name">Name:</label>
+          <input class="form-control" type="text" id="name" formControlName="name">
+        </div>
       </div>
-    
-      <div>
-        <label for="name">Name:</label>
-        <input type="text" id="name" formControlName="name">
+
+      <div class="row">
+        <div class="col-12">
+          <label class="form-label" class="form-label" for="job">Job Title:</label>
+          <input class="form-control" type="text" id="job" formControlName="job">
+        </div>
       </div>
-    
-      <div>
-        <label for="superpowers">Superpowers:</label>
-        <input type="text" id="superpowers" formControlName="superpowers">
+      <div class="row">
+        <div class="col-md-12">
+          <hr class="my4">
+          <div formGroupName="alterEgo">
+            <h5>Alter Ego</h5>
+
+
+            <div class="row">
+              <div class="col-12">
+                <label class="form-label" class="form-label" for="name">Name:</label>
+                <input class="form-control" type="text" id="name" formControlName="name">
+              </div>
+            </div>
+
+
+            <div class="row">
+              <div class="col-12">
+                <label class="form-label" class="form-label" for="superpowers">Superpowers:</label>
+                <textarea formControlName="superpowers" class="form-control" id="superpowers" name="superpowers" rows="3"></textarea>
+                <small class="help-block">Please enter a comma separated list</small>
+              </div>
+            </div>
+
+
+            <div class="row">
+              <div class="col-12">
+                <label class="form-label" class="form-label" for="weakness">Weakness:</label>
+                <input class="form-control" type="text" id="weakness" formControlName="weakness">
+              </div>
+            </div>
+          </div>
+
+          <hr class="my4">
+        </div>
       </div>
-    
       <div>
-        <label for="weakness">Weakness:</label>
-        <input type="text" id="weakness" formControlName="weakness">
+        <input class="btn btn-primary" type="submit" value="Submit">
       </div>
-    </div>
-    <div>
-        <input type="submit" value="Submit"> 
-    </div>
-  </form>
+    </form>
+  </div>
+</div>

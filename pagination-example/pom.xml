@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.skillstorm.training</groupId>
-	<artifactId>week14-barbeque-api</artifactId>
+	<artifactId>pagination-example</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>week14-barbeque-api</name>
-	<description>A REST Api for viewing and saving Barbeque items</description>
+	<name>pagination-example</name>
+	<description>A REST Api for demoing pagination</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
@@ -40,14 +40,6 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
-		<!-- https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-ui -->
-        <dependency>
-            <groupId>org.springdoc</groupId> <!-- This is going to generate my Swagger docs -->
-            <artifactId>springdoc-openapi-ui</artifactId>
-            <version>1.7.0</version>
-        </dependency>
-		
 	</dependencies>
 
 	<build>

@@ -5,5 +5,5 @@ export class Person {
     constructor(public id: number,
                     public name: string,
                         public job: string,
-                            public ego: AlterEgo) {}
+                            public alterEgo: AlterEgo) {}
 }

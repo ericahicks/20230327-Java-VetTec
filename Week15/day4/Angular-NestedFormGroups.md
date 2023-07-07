@@ -8,7 +8,18 @@ FormGroups can be nested.
 For example, a user profile might have name, dob, phone, email, and address where address itself has streetAddress, city, state, zip.
 
 ```
-
+{
+      name: '',
+      dob: '',
+      phone: '',
+      email: '',
+      address: {
+        streetAddress: '',
+        city: '',
+        state: '',
+        zip: ''
+      }
+}
 ```
 
 ## Steps
@@ -37,10 +48,8 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 
 ```
 export class PersonProfileComponent {
-  personForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
-    this.personForm = this.fb.group({
+  this.personForm = this.fb.group({
       name: '',
       dob: '',
       phone: '',
@@ -52,7 +61,10 @@ export class PersonProfileComponent {
         zip: ''
       })
     });
-  }
+
+  constructor(private fb: FormBuilder) { }
+    
+  
 }
 
 ```
@@ -169,3 +181,133 @@ export class PersonProfileComponent {
 </form>
 ```
 
+4. Make sure you have your model classes and your service class set up. MAKE SURE THIS MODEL'S PROPERTIES MATCH THE BACKEND'S MODEL'S PROPERTIES.
+
+  a. Model classes
+
+  ```
+  export class Person {
+    name: string;
+    dob: string;
+    phone: string;
+    email: string;
+    address: Address;
+  }
+
+  export class Address {
+    streetAddress: string;
+    city: string;
+    state: string;
+    zip: string;
+  }
+ 
+  ```
+
+  b. Service class
+
+  `ng generate service Person --skip-tests` // note Angular adds .service so we don't need Service in the name
+
+  in app.modules.ts import the HttpClientModule from @anular/common/http
+
+  ```
+    import { NgModule } from '@angular/core';
+    import { BrowserModule } from '@angular/platform-browser';
+    import { HttpClientModule } from '@angular/common/http';
+
+    @NgModule({
+      imports: [
+        BrowserModule,
+        // import HttpClientModule after BrowserModule.
+        HttpClientModule,
+      ],
+      declarations: [
+        AppComponent,
+      ],
+      bootstrap: [ AppComponent ]
+    })
+    export class AppModule {}
+  ```
+
+  in person.service.ts
+
+  ```
+  import { Injectable } from '@angular/core';
+  import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+  @Injectable()
+  export class PersonService {
+    constructor(private http: HttpClient) { }
+  }
+
+  SAVE(person: Person): Observable<Person> {
+    return this.http.post<Person>('http://localhost:8080/v1/people', Person, {headers: new HttpHeaders({'Content-Type': 'application/json'})});
+  }
+
+
+  ```
+
+5. In the component class, set up a method stub for onSubmit()
+
+```
+onSubmit() {
+  // Grab all the fields from the inputs (notice the nested form group's controls names are address.whatever)
+  let name = this.personForm.get('name')?.value;
+  let zip = this.personForm.get('address.zip')?.value;
+
+  // TODO create an object of type Person
+  let person: Person;
+  person = ...
+  // TODO call the PersonService class's .save(person) method and .subscribe(data => console.log(data))
+}
+```
+
+In order to get the value from each form control, you need to call
+
+```
+   name: string = this.personForm.get('name')?.value;
+```
+
+6. In the form html template at the event binding (ngSubmit)="onSubmit()";
+
+```
+<form (ngSubmit)="onSubmit() formGroup="personForm >
+...
+</form>
+```
+
+7. Add a .reset() in the onSubmit method
+
+```
+
+onSubmit() {
+  ...
+  this.personForm.reset();
+}
+
+8. Test it!
+
+Make sure your backend had cors enabled
+
+```
+@CrossOrigin(orgins = "*") // this is for allowing all
+@RestController
+class PersonController {
+  ...
+}
+```
+
+9. For POST mappings, make sure the method saving the nested object and the object itself is annotated
+   with 
+   ```
+   @Transanctional
+   public Person save(Person person) {
+    // make sure you save the nested object first setting it's reference to the outer object to null
+
+    // save the outer object with the nested object set to null
+    // make sure to attach the object to the persistence context using
+    entityManager.merge(person);
+
+    // relink the outer and nested objects
+
+    // save to the repo
+   }

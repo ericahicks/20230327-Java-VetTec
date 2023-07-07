@@ -8,12 +8,19 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 // JPA annotation
 @Entity
+//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class AlterEgo {
 
 	// properties
@@ -29,6 +36,9 @@ public class AlterEgo {
 
 	// Set up the one-to-one relationship between Person and AlterEgo
 	@OneToOne(mappedBy = "alterEgo", cascade = CascadeType.ALL, orphanRemoval = true)
+//	@JsonBackReference 
+//	@JsonIgnore
+	@JsonIdentityReference(alwaysAsId = true)
 	Person person;
 
 	public Long getId() {
