@@ -228,7 +228,7 @@ export class PersonProfileComponent {
     export class AppModule {}
   ```
 
-  in person.service.ts
+  In person.service.ts:
 
   ```
   import { Injectable } from '@angular/core';
@@ -237,13 +237,12 @@ export class PersonProfileComponent {
   @Injectable()
   export class PersonService {
     constructor(private http: HttpClient) { }
-  }
+  
 
-  SAVE(person: Person): Observable<Person> {
-    return this.http.post<Person>('http://localhost:8080/v1/people', Person, {headers: new HttpHeaders({'Content-Type': 'application/json'})});
-  }
-
-
+     save(person: Person): Observable<Person> {
+        return this.http.post<Person>('http://localhost:8080/v1/people', Person, {headers: new HttpHeaders({'Content-Type': 'application/json'})});
+     }
+}
   ```
 
 5. In the component class, set up a method stub for onSubmit()
@@ -275,14 +274,14 @@ In order to get the value from each form control, you need to call
 </form>
 ```
 
-7. Add a .reset() in the onSubmit method
+7. Add a .reset() in the onSubmit method in the component.ts file
 
 ```
-
 onSubmit() {
   ...
   this.personForm.reset();
 }
+```
 
 8. Test it!
 
@@ -301,13 +300,11 @@ class PersonController {
    ```
    @Transanctional
    public Person save(Person person) {
-    // make sure you save the nested object first setting it's reference to the outer object to null
-
-    // save the outer object with the nested object set to null
-    // make sure to attach the object to the persistence context using
-    entityManager.merge(person);
-
-    // relink the outer and nested objects
-
-    // save to the repo
+    // make sure you save the nested object first 
+    Address a = addressRepo.save(person.getAddress());
+    // then associate the persisted address object with the person
+    person.setAddress(a);
+    // finally you can save the person object itself
+    return personRepo.save(person);
    }
+   ```
