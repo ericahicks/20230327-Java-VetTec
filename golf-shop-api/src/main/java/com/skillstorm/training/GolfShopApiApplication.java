@@ -6,10 +6,10 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication
 @EnableEurekaClient
-public class GolfApiApplication {
+public class GolfShopApiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(GolfApiApplication.class, args);
+		SpringApplication.run(GolfShopApiApplication.class, args);
 	}
 
 }
